@@ -1,0 +1,5 @@
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.Sandbox\bin\Debug\uWebshop.Starterkits.Sandbox.dll
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.Sandbox\bin\Debug\uWebshop.Starterkits.Sandbox.pdb
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.Sandbox\obj\Debug\uWebshop.Starterkits.Sandbox.dll
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.Sandbox\obj\Debug\uWebshop.Starterkits.Sandbox.pdb
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.Sandbox\obj\Debug\uWebshop.Starterkits.Sandbox.csprojResolveAssemblyReference.cache

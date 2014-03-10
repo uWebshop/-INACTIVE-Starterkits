@@ -1,0 +1,45 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Linq
+@using Umbraco.Web
+@using uWebshop.API
+
+@using (Html.BeginUmbracoForm("Handle", "BasketHandler")) {
+	
+	IProduct product = PageData[0];
+
+	if (product != null)
+	{
+
+		var maxValue = product.Stock;
+		if (product.BackorderStatus || maxValue == 0 && product.Orderable)
+		{
+			maxValue = 99;
+		}
+
+		<input type="hidden" name="productId" value="@product.Id"/>
+		<input type="hidden" name="action" value="add" />
+
+		if (product.IsDiscounted)
+		{
+			<small class="text-muted">Originally: <strike>@product.Price.BeforeDiscount.WithVat.ToCurrencyString()</strike></small>
+		}
+		<h2>@product.Price.WithVat.ToCurrencyString() <small class="text-muted">Incl.Tax</small></h2>
+
+		foreach (var productVarGroup in product.VariantGroups)
+		{
+			<label for="@("variant" + productVarGroup.Title)">@productVarGroup.Title</label>
+			<select name="@("variant" + productVarGroup.Title)" class="form-control">
+				@foreach (var productVar in productVarGroup.Variants.Where(x => x.Orderable))
+				{
+					<option value="@productVar.Id">@productVar.Title (+@productVar.Price.WithVat.ToCurrencyString())</option>
+				}
+			</select>
+		}
+
+		<label for="quantity">Quantity</label>
+		<input type="number" min="1" max="@maxValue" id="quantity" name="quantity" value="1" class="form-control"/>
+		<br />
+		<button type="submit" class="btn btn-success btn-lg"> <span class="glyphicon glyphicon-shopping-cart" ></span>&nbsp;&nbsp;Add to Cart! </button>
+	
+	}
+}

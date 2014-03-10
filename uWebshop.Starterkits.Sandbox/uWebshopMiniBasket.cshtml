@@ -1,0 +1,31 @@
+﻿@*uWebshop Razor Example MiniBasket
+=================================
+This snippet gives you a mini basket example to show the items in the basket and the grandtotal
+*@
+
+@using uWebshop.RazorExtensions
+@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@{
+
+	var currentOrder = Orders.GetOrderForCurrentCustomer();
+
+	if (currentOrder != null && currentOrder.GrandtotalInCents != 0)
+	{
+		var storeCurrencyCultureInfo = Catalog.GetCurrentStore().CurrencyCultureInfo;
+
+		<hr/>
+		<h3>Minibasket</h3>
+		<table>
+			<tr>
+				<th>Items in Basket: </th>
+				<td>@currentOrder.OrderLines.Sum(x => x.ProductInfo.ItemCount)</td>
+			</tr>
+			<tr>
+				<th>Basket Grandtotal: </th>
+				<td>@currentOrder.Grandtotal.ToString("C", storeCurrencyCultureInfo)</td>
+			</tr>
+		</table>
+		<hr/>
+	}
+}

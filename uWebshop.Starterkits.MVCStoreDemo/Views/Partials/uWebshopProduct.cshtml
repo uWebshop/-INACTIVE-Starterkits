@@ -1,0 +1,160 @@
+﻿@*
+uWebshop Razor Example: Product Details
+=================================
+You can use this example to display product information based on the product url.
+uWebshop uses a default html <form> to update the basket. Keep in mind that if you add this code within a <form runat="server"> block that .net will remove the <form> tags from this code and basketupdates won't work!
+*@
+
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System
+@using System.Linq
+@using Umbraco.Web
+@using uWebshop.API
+@{
+	
+	// get current product based on category and product  (used for url rewriting, so from the current url)
+	var product = Catalog.GetProduct();
+
+	if (product != null)
+	{
+		@* stock 100 = success, stock 60 = info, stock 40 = warning, stock 20 = danger *@
+		var availableCount = product.Stock;
+		var color = "success";
+
+		if (product.Stock < 10)
+		{
+			availableCount = product.Stock * 10;
+		}
+
+		if (product.BackorderStatus)
+		{
+			availableCount = 100;
+			color = "success";
+		}
+		if (availableCount < 60)
+		{
+			color = "info";
+		}
+		if (availableCount < 40)
+		{
+			color = "warning";
+		}
+		if (availableCount < 20)
+		{
+			color = "danger";
+		}
+
+		if (availableCount > 0 && availableCount < 10)
+		{
+			availableCount = 10;
+		}
+
+		if (product.Orderable)
+		{
+			availableCount = 100;
+			color = "success";
+		}
+		
+		<div class="col-sm-4">
+			<div class="row">
+				
+				@if (!product.Images.Any())
+				{
+					<div class="col-sm-12 text-center">
+						<div class="thumbnail"> <img data-src="holder.js/100%x100%/text:Image/" alt="..."> </div>
+					</div>
+					<div class="col-sm-6 col-md-4 col-xs-4"> <a href="#" class="thumbnail"> <img data-src="holder.js/100%x70/text:thumb/" alt="..."> </a> </div>
+					<div class="col-sm-6 col-md-4 col-xs-4"> <a href="#" class="thumbnail"> <img data-src="holder.js/100%x70/text:thumb/" alt="..."> </a> </div>
+					<div class="col-sm-6 col-md-4 col-xs-4"> <a href="#" class="thumbnail"> <img data-src="holder.js/100%x70/text:thumb/" alt="..."> </a> </div>
+
+				}
+				else
+				{
+					<div class="col-sm-12 text-center">
+						<div class="thumbnail"> <img src="@product.Images.First().RelativePathToFile" height="100%" alt="..."> </div>
+					</div>
+					foreach (var image in product.Images.Skip(1))
+					{
+						<div class="col-sm-6 col-md-4 col-xs-4"> <a href="#" class="thumbnail">  <img src="@image.RelativePathToFile" height="70" alt="..."> </a> </div>
+					}
+				}
+			</div>
+		</div>
+		<div class="col-sm-8">
+    <h1>@product.Title</h1>
+    <div class="row">
+      
+	    <div class="col-sm-12 col-md-4 col-md-push-8">
+		    @if (product.Orderable)
+		    {
+
+			    var maxValue = product.Stock;
+			    if (product.BackorderStatus || maxValue == 0 && product.Orderable)
+			    {
+				    maxValue = 99;
+			    }
+		  
+			    <div class="panel panel-default">
+				    <div class="panel-heading">
+					    <div class="row">
+						    <div class="col-sm-5 col-xs-5">
+							    <h3 class="panel-title">Buy!</h3>
+						    </div>
+						    <div class="col-sm-7 col-xs-7 text-right">
+							    @RenderPage("~/Views/Partials/_AddToWishlist.cshtml", product)
+						    </div>
+					    </div>
+				    </div>
+				    <div class="panel-body">
+					    @if (availableCount > 0)
+					    {
+						    @RenderPage("~/Views/Partials/_ProductAddToBasket.cshtml", product)
+					    }
+					    else
+					    {
+						    <button disabled="disabled" class="btn btn-danger btn-lg"> <span class="glyphicon glyphicon-shopping-cart" ></span>&nbsp;&nbsp;Unavailable</button>
+					    }
+				    </div>
+			    </div>
+		    }
+		    <div class="col-md-12">
+			    <h4>Availability</h4>
+			    <div class="progress progress-striped active">
+				    <div class="progress-bar progress-bar-@color" role="progressbar" aria-valuenow="@availableCount" aria-valuemin="0" aria-valuemax="100" style="width: @availableCount%;"> </div>
+				    <span class="sr-only pull-right">
+					    @if(product.Stock > 0) {
+						    @product.Stock @Html.Raw("left! ")
+					    }
+				    </span>
+			    </div>
+		    </div>
+		    <div class="col-md-12">
+			    <dl>
+				    <dt>SKU</dt>
+				    <dd>@product.SKU</dd>
+			    </dl>
+		    </div>
+	    </div>
+		<div class="col-sm-12 col-md-8 col-md-pull-4">
+		  <p class="lead">@product.GetProperty("introduction")</p>
+		  @Html.Raw(product.Description)
+		  <blockquote>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+          <small>Someone who is a very <cite title="Source Title">satisfied customer</cite></small> </blockquote>
+        <h3>Features</h3>
+        @Html.Raw(product.GetProperty("features"))
+      </div>
+
+    </div>
+  </div>
+			
+	var random = new Random();
+
+	var randomProducts = from item in Catalog.GetAllProducts() orderby random.Next() select item;
+			
+	<h4>You might also like the following products!</h4>
+		
+	@RenderPage("~/Views/Partials/_SmallProductDisplay.cshtml", randomProducts)
+			
+	}
+}

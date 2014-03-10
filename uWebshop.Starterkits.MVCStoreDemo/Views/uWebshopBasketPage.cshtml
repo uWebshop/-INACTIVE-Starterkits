@@ -1,0 +1,13 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "uWebshopMaster.cshtml";
+}
+
+	@RenderPage("~/Views/Partials/CrumblePath.cshtml")
+	
+	<h2>@CurrentPage.Name</h2>
+			
+	@CurrentPage.bodyText
+
+	@RenderPage("~/Views/Partials/uWebshopBasket.cshtml")
+	

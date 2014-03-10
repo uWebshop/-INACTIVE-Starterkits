@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3578DEF-A8C0-4652-9868-03E40C1A0C0C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>uWebshop.Starterkits.StoreDemo</RootNamespace>
+    <AssemblyName>uWebshop.Starterkits.StoreDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="interfaces">
+      <HintPath>..\Binary Dependencies\interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="umbraco.MacroEngines">
+      <HintPath>..\Binary Dependencies\umbraco.MacroEngines.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Css\bootstrap-theme.css" />
+    <Content Include="Css\bootstrap.css" />
+    <Content Include="Css\uWebshopStarterkit.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="package.xml" />
+    <Content Include="Scripts\Assets\bootstrap.min.js" />
+    <Content Include="Scripts\Assets\holder.js" />
+    <Content Include="Scripts\Assets\html5shiv.js" />
+    <Content Include="Scripts\Assets\jquery.min.js" />
+    <Content Include="Scripts\Assets\respond.min.js" />
+    <Content Include="Scripts\uWebshopStarterkit.js" />
+    <Content Include="uWebshopDemoStarterkitInstaller.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="MacroScripts\CrumblePath.cshtml" />
+    <None Include="MacroScripts\CustomerForgotPassword.cshtml" />
+    <None Include="MacroScripts\CustomerOrders.cshtml" />
+    <None Include="MacroScripts\CustomerProfile.cshtml" />
+    <None Include="MacroScripts\CustomerWishlist.cshtml" />
+    <None Include="MacroScripts\NewestProducts.cshtml" />
+    <None Include="MacroScripts\RandomCategories.cshtml" />
+    <None Include="MacroScripts\TopSellingProductsList.cshtml" />
+    <None Include="MacroScripts\uWebshopActionResult.cshtml" />
+    <None Include="MacroScripts\uWebshopBasket.cshtml" />
+    <None Include="MacroScripts\uWebshopCategory.cshtml" />
+    <None Include="MacroScripts\uWebshopCheckout.cshtml" />
+    <None Include="MacroScripts\uWebshopCheckoutCustomer.cshtml" />
+    <None Include="MacroScripts\uWebshopLatestProducts.cshtml" />
+    <None Include="MacroScripts\uWebshopMetaDescription.cshtml" />
+    <None Include="MacroScripts\uWebshopMiniBasket.cshtml" />
+    <None Include="MacroScripts\uWebshopNavigation.cshtml" />
+    <None Include="MacroScripts\uWebshopPaging.cshtml" />
+    <None Include="MacroScripts\uWebshopProduct.cshtml" />
+    <None Include="MacroScripts\uWebshopTopSellingProducts.cshtml" />
+    <None Include="MacroScripts\_AddToWishlist.cshtml">
+      <SubType>Code</SubType>
+    </None>
+    <None Include="MacroScripts\_BasketOrderLines.cshtml" />
+    <None Include="MacroScripts\_ChangeCurrency.cshtml" />
+    <None Include="MacroScripts\_CustomerChangePassword.cshtml" />
+    <None Include="MacroScripts\_CustomerCreate.cshtml" />
+    <None Include="MacroScripts\_CustomerLogin.cshtml" />
+    <None Include="MacroScripts\_CustomerOrderDetails.cshtml" />
+    <None Include="MacroScripts\_CustomerProfile.cshtml" />
+    <None Include="MacroScripts\_MediumProductDisplay.cshtml" />
+    <None Include="MacroScripts\_OrderOrderLines.cshtml" />
+    <None Include="MacroScripts\_SimpleAddToBasket.cshtml" />
+    <None Include="MacroScripts\_SmallProductDisplay.cshtml" />
+    <None Include="Masterpages\uwbsCheckoutCustomer.master">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Masterpages\uwbsCheckoutOverview.master">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Masterpages\uwbsProfile.master">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Masterpages\uwbsProfileLoginCreate.master">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Masterpages\uwbsProfileOrders.master">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Masterpages\uwbsProfilePasswordForgotten.master">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Masterpages\uwbsProfileWishlist.master">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Masterpages\uwbsBasket.master">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Masterpages\uwbsCategory.master" />
+    <None Include="Masterpages\uwbsCheckout.master">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Masterpages\uwbsHomepage.master">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Masterpages\uwbsProduct.master">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Masterpages\uwbsTextpage.master" />
+    <None Include="Masterpages\uWebshopMaster.master">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\uWebshop.Domain\uWebshop.Domain.csproj">
+      <Project>{30AC1FB6-EB29-4E4E-92C4-0481C503215C}</Project>
+      <Name>uWebshop.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

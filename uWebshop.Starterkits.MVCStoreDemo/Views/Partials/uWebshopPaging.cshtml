@@ -1,0 +1,117 @@
+﻿@*
+uWebshop Razor Example: Category Details With Paging 
+=================================
+You can use this example to display category information based on the a category Id and with paging example
+*@
+
+@using uWebshop.API
+@{
+
+	var categories = Catalog.GetAllCategories().ToList();
+
+
+	<hr/>
+	<h3>Paging Example</h3>
+	<p>This example shows how to display a category with paging for products.<br/>
+		The products are ordered by title and grouped by the set items a page (10).</p>
+
+	if (categories.Any())
+	{
+		foreach (var category in categories.Where(category => category.Products.Any()))
+		{
+			@RenderProducts(category)
+		}
+	}
+	else
+	{
+		<h4>No categories found</h4>
+	}
+}
+
+
+@helper RenderCategories(ICategory category)
+{
+	if (@category.SubCategories.Any())
+	{
+		foreach (var subcategory in category.SubCategories)
+		{
+			<li>
+				<a href="@subcategory.Url" title="@subcategory.Title">@subcategory.Title</a>
+        
+				@if (subcategory.SubCategories.Any())
+				{
+					<ul>
+						@RenderCategories(subcategory)
+					</ul>
+				}
+			</li>
+		}
+	}
+}
+
+@helper RenderProducts(ICategory category)
+{
+	if (category.Products.Any())
+	{
+		var allCategoryProducts = category.Products.OrderBy(x => x.Title);
+
+		const int itemsPerPage = 1;
+		var productPaging = Catalog.GetPages(allCategoryProducts.Count(), itemsPerPage);
+
+		var pagedProducts = allCategoryProducts.Skip(productPaging.Skip).Take(productPaging.Take);
+		<a name="pagingstart"></a>
+		@RenderPaging(productPaging)
+		<ul>
+			@foreach (var product in pagedProducts)
+			{
+				<li>
+					<a href="@product.NiceUrl()" title="@product.Title">@product.Title</a>
+				</li>
+			}
+		</ul>
+		@RenderPaging(productPaging)
+	}
+}
+
+@helper RenderPaging(uWebshop.Domain.Paging paging)
+{
+	if (paging.TotalPages <= 1)
+	{
+		<div class="pager">
+		</div>
+		return;
+	}
+
+	const string page = "?page=";
+	var maxIndex = paging.TotalPages;
+
+	<div class="pager">
+		@if (paging.CurrentPage > 1)
+		{
+			<span class="left">
+				<a href="@page@paging.PreviousPage#pagingstart">Previous</a>
+			</span>
+		}
+		@for (var i = 1; i <= maxIndex; i++)
+		{
+			if (paging.CurrentPage == i)
+			{
+				<span class="item active">
+					<a href="@page@i#pagingstart">@i</a>
+				</span>
+			}
+			else
+			{
+				<span class="item">
+					<a href="@page@i#pagingstart">@i</a>
+				</span>
+			}
+		}
+		@if (paging.CurrentPage < paging.TotalPages)
+		{
+			<span class="right">
+				<a href="@page@paging.NextPage#pagingstart">Next</a>
+			</span>
+		}
+	</div>
+}

@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/uWebshopMaster.master" AutoEventWireup="true" %>
+<asp:content contentplaceholderid="cp_content" runat="server">
+  
+<div class="row">
+	<div class="col-md-9">       
+      <div class="jumbotron">
+        <h1>uWebshop StarterStore</h1>
+        <p>Get started with uWebshop quickly and beautifully with this starterkit!</p>
+                
+      </div>
+    </div> <!-- /col-md-9--> 
+	<div class="col-md-3">
+      <div class="well sidebar-nav">
+        <umbraco:Macro runat="server" language="cshtml">
+			@RenderPage("~/macroScripts/TopSellingProductsList.cshtml")
+			  @RenderPage("~/macroScripts/RandomCategories.cshtml")
+		</umbraco:Macro>  
+      </div>
+    </div><!-- /col-md-3 -->
+</div><!-- /row -->
+
+	 <umbraco:Macro runat="server" language="cshtml">
+			@RenderPage("~/macroScripts/TopSellingProductsList.cshtml")
+			  @RenderPage("~/macroScripts/RandomCategories.cshtml")
+		</umbraco:Macro>  
+	
+</asp:content>

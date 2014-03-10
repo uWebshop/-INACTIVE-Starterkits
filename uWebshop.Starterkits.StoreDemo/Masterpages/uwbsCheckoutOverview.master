@@ -1,0 +1,8 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsCheckout.master" AutoEventWireup="true" %>
+
+
+<asp:Content ContentPlaceHolderId="CheckoutModule" runat="server">
+	<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/uWebshopCheckout.cshtml")
+	</umbraco:Macro>
+</asp:Content>

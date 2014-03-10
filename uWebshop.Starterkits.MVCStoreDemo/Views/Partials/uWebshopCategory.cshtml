@@ -1,0 +1,82 @@
+﻿@*
+uWebshop Razor Example: Category Details
+=================================
+You can use this example to display category information based on the category url.
+*@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Linq
+@using uWebshop.API
+@{
+	// get current category based on category url
+	var currentCategory = Catalog.GetCategory();
+
+	if (currentCategory != null)
+	{
+		<div class="jumbotron">
+         <h1>@currentCategory.Title</h1>
+         @Html.Raw(currentCategory.Description)
+      </div>
+		
+		if (currentCategory.Images.Any())
+		{
+			<h3>Images of the <em>@currentCategory.Title</em> category</h3>
+			foreach (var image in @currentCategory.Images)
+			{
+				var imageNode = CurrentPage.MediaById(image.Id);
+				<img src="@imageNode.umbracoFile" alt="@imageNode.altText" />
+			}
+		}
+
+		if (currentCategory.SubCategories.Any())
+		{
+			<h3>There are @currentCategory.SubCategories.Count() Subcategories in the <em>@currentCategory.Title</em> category:</h3>
+			<ul>
+				@RenderCategories(currentCategory)
+			</ul>
+		}
+
+
+		if (currentCategory.Products.Any())
+		{
+			 <div class="page-header">
+				 <h2>Products <small>in @currentCategory.Title</small></h2>
+			</div>
+				 
+			@RenderPage("~/Views/Partials/_MediumProductDisplay.cshtml", currentCategory.Products)
+		}
+	}
+}
+
+
+@helper RenderCategories(ICategory category)
+{
+	if (category.SubCategories.Any())
+	{
+		foreach (var subcategory in category.SubCategories.OrderBy(x => x.SortOrder))
+		{
+			<li>
+				<a href="@subcategory.Url" title="@subcategory.Title">@subcategory.Title</a>
+        
+				@if (subcategory.SubCategories.Any())
+				{
+					<ul>
+						@RenderCategories(subcategory)
+					</ul>
+				}
+			</li>
+		}
+	}
+}
+
+@helper RenderProducts(ICategory category)
+{
+	if (category.Products.Any())
+	{
+		foreach (var product in category.Products.OrderBy(x => x.Title))
+		{
+			<li>
+				<a href="@product.Url" title="@product.Title">@product.Title</a>
+			</li>
+		}
+	}
+}

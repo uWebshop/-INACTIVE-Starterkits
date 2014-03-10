@@ -1,0 +1,147 @@
+﻿@*uWebshop Basket
+=================================
+This snippet gives you a deafult basket example
+uWebshop uses a default html <form> to update the basket. Keep in mind that if you add this code within a <form runat="server"> block that .net will remove the <form> tags from this code and basketupdates won't work!
+*@
+
+@using uWebshop.RazorExtensions
+@using uWebshop.API;
+@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@{
+	var basket = Basket.GetBasket();
+	if (basket != null)
+	{
+		<table>
+			<thead>
+				<tr>
+					<th>Product</th>
+					<th align="right">Product Price With Vat</th>
+					<th align="right">Product Price Without Vat</th>
+					<th align="right">Product Price Vat</th>
+					<th align="center">Itemcount</th>
+					<th align="right">Orderline Subtotal</th>
+					<th align="right">Orderline Vat</th>
+					<th align="right">Orderline Total</th>
+				</tr>
+			</thead>
+			<tfoot>              
+				<tr>
+					<th colspan="6" align="right">Shipping costs With Vat</th>
+					<td colspan="2" align="right">@basket.ShippingProviderAmount.WithVat.ToCurrencyString()</td>
+				</tr>
+				<tr>
+					<th colspan="6" align="right">Payment costs With Vat</th>
+					<td colspan="2" align="right">@basket.PaymentProviderAmount.WithVat.ToCurrencyString()</td>
+				</tr>			 	
+				<tr>
+					<th colspan="6" align="right">Order discount With Vat</th>
+					<td colspan="2" align="right">- @basket.OrderAmount.Discount.WithVat.ToCurrencyString()</td>
+				</tr>			  	
+				<tr>
+					<th colspan="6" align="right">Orderlines Total With Vat</th>
+					<td colspan="2" align="right">@basket.OrderLineTotal.WithVat.ToCurrencyString()</td>
+				</tr>					
+				<tr>
+					<th colspan="6" align="right">Subtotal</th>
+					<td colspan="2" align="right">@basket.SubTotal.ToCurrencyString()</td>
+				</tr>
+				<tr>
+					<th colspan="6" align="right">TotalVat</th>
+					<td colspan="2" align="right">@basket.OrderAmount.Vat.ToCurrencyString()</td>
+				</tr>              
+				<tr>
+					<th colspan="6" align="right">Grandtotal</th>
+					<td colspan="2" align="right"><strong>@basket.GrandTotal.ToCurrencyString()</strong></td>
+				</tr>
+			</tfoot>
+			<tbody>
+				@foreach (var orderline in basket.OrderLines)
+				{
+					<tr>
+						<td>@orderline.Product.Title</td>
+						<td align="right">@orderline.Product.Price.Ranged.WithVat.ToCurrencyString()</td>
+						<td align="right">@orderline.Product.Price.Ranged.WithoutVat.ToCurrencyString()</td>
+						<td align="right">@orderline.Product.Price.Ranged.Vat.ToCurrencyString()</td>
+						<td align="center">
+							<form name="orderform" method="post">
+								<input type="hidden" name="orderLineId" value="@orderline.Id"/>
+								<input type="hidden" name="action" value="update"/>
+								<input type="text" name="quantity" value="@orderline.Quantity"/>
+                                
+								@foreach (var productVarGroup in orderline.Product.CatalogProduct.VariantGroups)
+								{
+									<strong>@productVarGroup.Title</strong>
+									<br/>
+									<select name="@("variant" + productVarGroup.Id)">
+										@foreach (var productVar in productVarGroup.Variants)
+										{
+											var itemChecked = orderline.HasVariantWithId(productVar.Id) ? "selected=\"selected\"" : "";
+											<option @Html.Raw(itemChecked) value="@productVar.Id">@productVar.Title @productVar.Price.Ranged.WithVat.ToCurrencyString()</option>
+										}
+									</select>
+									<br/>
+								}
+
+								<input type="submit" value="update!" />
+							</form>     
+						</td>
+						<td align="right">@orderline.Amount.WithoutVat.ToCurrencyString()</td>
+						<td align="right">@orderline.Amount.Vat.ToCurrencyString()</td>
+						<td align="right">@orderline.Amount.WithVat.ToCurrencyString()</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+
+
+		<h2><a href="@Model.Children[0].Url">Continue to @Model.Children[0].Name</a></h2>
+
+		<hr/>
+		<h3>Enter a coupon code</h3>
+		<p>Entering a coupon code can activate the discount.</p>
+		<form name="couponform" method="POST">
+			<input type="text" name="couponCode" id="couponCode"/>
+			<input type="submit" value="add coupon"/>
+		</form>
+		<hr/>
+		<h3>Create an acccount</h3>
+		<p>When a users is logged in the order will be related to the customer.</p>
+		<form name="createAccount" method="POST">
+			<input type="hidden" name="createAccount" id="createAccount" value="createAccount"/>
+			<table>
+				<tr>
+					<th><label for="customerEmail">Email</label>
+					<td><input type="text" name="customerEmail" id="customerEmail"/></td>
+				</tr>
+				<tr>
+					<th><label for="password">Password</label>
+					<td><input type="text" name="password" id="password"/></td>
+				</tr>
+				<tr>
+					<th><label for="validatePassword">Validate Password</label>
+					<td><input type="text" name="validatePassword" id="validatePassword"/></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="create account"/></td>
+				</tr>
+			</table>  	 	
+		</form>
+
+		<form method="post"name="accountLogin">
+			<label for="name">E-mail adres:</label>
+			<input type="text" id="customerEmail" name="customerEmail" />
+		
+			<label for="password">Wachtwoord:</label>
+			<input type="password" id="password" name="password" />
+		
+			<input type="hidden" id="accountSignIn" name="accountSignIn" value="true"/>
+			<input type="submit" id="submit" name="submit" value="login"/>
+		</form>
+	}
+	if (basket == null || !basket.OrderLines.Any())
+	{
+		<h3>There are no items in your basket</h3>
+	}
+}

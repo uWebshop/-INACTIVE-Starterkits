@@ -1,0 +1,102 @@
+﻿@using uWebshop.Domain.Interfaces
+@using uWebshop.API
+@{
+
+	var orderlines = PageData[0];
+
+	var wishlistName = string.Empty;
+
+	if (PageData[1] != null)
+	{
+		wishlistName = (string) PageData[1];
+	}
+
+	if (orderlines != null)
+	{
+		<div class="row orderline orderline-header">
+			<div class="col-sm-6">
+				<h4>Product</h4>
+			</div>
+			<div class="col-sm-2 text-right hidden-xs">
+				<h4>Price</h4>
+			</div>
+			<div class="col-sm-2 text-right hidden-xs">
+				<h4>Quantity</h4>
+			</div>
+			<div class="col-sm-2 text-right hidden-xs">
+				<h4>Orderline Total</h4>
+			</div>
+		</div>
+		foreach (IOrderLine orderline in orderlines)
+		{	
+			<div class="row orderline orderline-body"  id="@orderline.Id">
+				
+				@using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "handleform"})) {
+				
+					<div class="col-sm-6">
+						<h4><a href="@orderline.Product.CatalogProduct.Url" title=">@orderline.Product.Title">@orderline.Product.Title</a></h4>
+			
+						<div class="row">
+							@foreach (var productVarGroup in orderline.Product.CatalogProduct.VariantGroups)
+							{
+								<div class="col-sm-4">
+									<div class="form-group">
+										<label for="@("variant" + productVarGroup.Title)">@productVarGroup.Title</label>
+										<select  class="form-control" name="@("variant" + productVarGroup.Title)">
+											@foreach (var productVar in productVarGroup.Variants)
+											{
+												var itemChecked = orderline.HasVariantWithId(productVar.Id) ? "selected=\"selected\"" : "";
+												<option @Html.Raw(itemChecked) value="@productVar.Id">@productVar.Title @productVar.Price.Ranged.WithVat.ToCurrencyString()</option>
+											}
+										</select>
+									</div>
+								</div>
+							}
+						</div>		
+					</div>
+					<div class="col-sm-2 col-xs-6">
+						<strong class="visible-xs">Price</strong>
+						@orderline.Product.Price.WithVat.ToCurrencyString()
+					</div>
+				
+					<div class="col-sm-2  col-xs-6 text-right">
+						<input type="hidden" name="orderLineId" value="@orderline.Id"/>
+						<input type="hidden" name="action" value="update"/>
+						@if (!string.IsNullOrEmpty(wishlistName))
+						{		  
+							<input type="hidden" name="wishlist" value="@wishlistName"/>
+						}
+
+						@{
+							var maxValue = orderline.Product.CatalogProduct.Stock;
+							if (orderline.Product.CatalogProduct.BackorderStatus || orderline.Product.CatalogProduct.Stock == 0 && orderline.Product.CatalogProduct.Orderable)
+							{
+								maxValue = 999;
+							}
+
+
+							<div class="input-group">
+								<input type="number" min="0" max="@maxValue" class="form-control text-right" name="quantity" value="@orderline.Quantity"/>								
+								<span class="input-group-btn">
+									<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span></button>
+								</span>							
+							</div>
+						}
+						
+						
+						
+					</div>
+				}
+					<div class="col-sm-2 text-right">
+						<span class="visible-xs">
+							<hr/>
+							Orderline Total:
+						</span>
+						<strong class="orderlinetotalamount">@orderline.Amount.WithVat.ToCurrencyString()</strong>
+					</div>
+			
+				</div>
+			
+		}
+	}
+}

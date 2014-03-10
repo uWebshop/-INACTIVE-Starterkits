@@ -1,0 +1,87 @@
+﻿@*
+uWebshop Navigation
+=================================
+This snippet lists all the categories and products in the uWebshop Catalog
+*@
+
+@using uWebshop.RazorExtensions
+@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@{
+	var currentStoreUrl = Catalog.GetCurrentStore().StoreURL;
+
+	<ul id="topNavigation">
+		<li><a href="@currentStoreUrl" title="Home">Home</a></li>
+		@RenderCatalogNav()		
+		@RenderContentNav(Model.AncestorOrSelf())		
+	</ul>
+}
+
+@helper RenderCatalogNav()
+{
+	foreach (var category in Catalog.AllRootCategories().OrderBy(x => x.SortOrder))
+	{
+		var cssClass = string.Empty;
+		var currentCategory = Catalog.Category();
+
+		if (currentCategory != null && category.Id == currentCategory.Id)
+		{
+			cssClass = "class=\"active\"";
+		}
+
+		<li @Html.Raw(cssClass)><a class="navigation"  href="@category.NiceUrl()" title="@category.Title">@category.Title</a></li>
+	}
+}
+
+@helper RenderContentNav(dynamic node)
+{
+	var currentPageId = Model.Id;
+	var items = node.Children.Where("umbracoNaviHide!=true");
+
+	if (items.Any())
+	{
+		var cssClass = string.Empty;
+
+		foreach (var item in items)
+		{
+			if (currentPageId == item.Id)
+			{
+				cssClass = "class=\"active\"";
+			}
+
+			<li @Html.Raw(cssClass)>
+				<a href="@item.Url">@item.Name</a>
+			</li>
+		}
+	}
+}
+
+@helper RenderCategories(uWebshop.Domain.Interfaces.ICategory category)
+{
+	if (category.SubCategories.Any())
+	{
+		foreach (var subcategory in category.SubCategories)
+		{
+			var cssClass = string.Empty;
+			var currentCategory = Catalog.Category();
+
+
+			if (currentCategory != null && subcategory.Id == currentCategory.Id)
+			{
+				cssClass = "class=\"active\"";
+			}
+
+
+			<li @Html.Raw(cssClass)>
+				<a href="@subcategory.NiceUrl()" class="navigation"  title="@subcategory.Title">@subcategory.Title</a>
+		
+				@if (subcategory.SubCategories.Any())
+				{
+					<ul>
+						@RenderCategories(subcategory)
+					</ul>
+				}
+			</li>
+		}
+	}
+}

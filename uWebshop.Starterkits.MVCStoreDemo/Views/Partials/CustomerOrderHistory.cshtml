@@ -1,0 +1,86 @@
+@using uWebshop.API		
+@using uWebshop.Common
+@{
+
+	var member = Membership.GetUser();
+
+	if (member != null)
+	{
+		
+		var orders = Customers.GetOrders(member.UserName);
+
+		if (!orders.Any())
+		{
+			<p>You don't have place any orders yet.</p>
+		}
+		else
+		{
+			orders = orders.Where(x => x.Status != OrderStatus.Wishlist && x.Status != OrderStatus.Incomplete && x.Status != OrderStatus.Cancelled);
+		}
+		<hr/>
+		<div class="row">
+			<div class="col-md-12">
+				@foreach (var order in orders.OrderByDescending(x => x.ConfirmDate))
+				{
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="row">
+									<div class="col-md-6">
+										<h3>Order @order.OrderReference</h3>
+									</div>
+									<div class="col-md-6">
+										<dl class="dl-horizontal">
+											<dt>Date of confirmation:</dt>
+											<dd>@string.Format("{0:dddd, d MMMM, yyyy (HH:MM)}", order.ConfirmDate)</dd>
+											<dt>Is this order paid?</dt>
+											<dd>@order.IsPaid @if (order.IsPaid) { @order.PaidDate}</dd>
+											<dt>Fulfilled/Shipped?</dt>
+											<dd>@order.IsFulfilled</dd>
+										</dl>
+									</div>
+								</div>
+						</div>
+						<div class="panel-body">
+								
+
+								@RenderPage("~/Views/Partials/_OrderOrderLines.cshtml", order.OrderLines)
+							
+							</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-6 col-md-offset-6">
+										<ul class="list-group">
+											@if (order.OrderAmount.Discount.WithVat.Value > 0)
+											{
+												<li class="list-group-item">
+													<span class="badge">- @order.OrderAmount.Discount.WithVat.ToCurrencyString()</span>
+													Order discount With Vat
+												</li>
+											}
+											<li class="list-group-item">
+												<span class="badge">@order.SubTotal.ToCurrencyString()</span>
+												Subtotal
+											</li>
+											@if (order.OrderAmount.Vat.Value > 0)
+											{
+												<li class="list-group-item">
+													<span class="badge">@order.OrderAmount.Vat.ToCurrencyString()</span>
+													TotalVat
+												</li>
+											}
+											<li class="list-group-item">
+												<span class="pull-left">Grandtotal</span>
+												<h3 class="text-right text-success">@order.ChargedOrderAmount.ToCurrencyString()</h3>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+				}
+			</div>
+		</div>
+
+
+	}
+}

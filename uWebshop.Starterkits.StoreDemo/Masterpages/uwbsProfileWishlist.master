@@ -1,0 +1,7 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsProfile.master" AutoEventWireup="true" %>
+
+<asp:content ContentPlaceHolderId="ProfileModule" runat="server">
+	<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/CustomerWishlist.cshtml")
+	</umbraco:Macro>
+</asp:content>

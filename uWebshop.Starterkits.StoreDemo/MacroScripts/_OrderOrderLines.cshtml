@@ -1,0 +1,71 @@
+﻿@using uWebshop.API
+@using uWebshop.Domain.Interfaces
+@{
+
+	var orderlines = PageData[0];
+	
+	if (orderlines != null)
+	{
+		<div class="row orderline orderline-header">
+			<div class="col-sm-6">
+				<h4>Product</h4>
+			</div>
+			<div class="col-sm-2 text-right hidden-xs">
+				<h4>Price</h4>
+			</div>
+			<div class="col-sm-2 text-right hidden-xs">
+				<h4>Quantity</h4>
+			</div>
+			<div class="col-sm-2 text-right hidden-xs">
+				<h4>orderline Total</h4>
+			</div>
+		</div>
+		foreach (IOrderLine orderline in orderlines)
+		{
+			<div class="row orderline orderline-body">
+				<div class="col-sm-6">						
+					@{
+
+						var product = Catalog.GetProduct(orderline.Product.CatalogProduct.Id);
+
+						if (product != null)
+						{
+							<h4><a href="@product.Url" title="@product.Title">@orderline.Product.Title</a></h4>
+						}
+						else
+						{
+							<h4>@orderline.Product.Title</h4>
+						}
+					}
+					<div class="row">
+						@foreach (var variant in orderline.Product.Variants)
+						{
+							<div class="col-sm-12">
+								<strong>@variant.Group:</strong><br class="hidden-xs"/>								
+								@variant.Title (@variant.Price.Ranged.WithVat.ToCurrencyString())<br/>								
+							</div>
+						}
+					</div>
+					<div class="visible-xs"><hr/></div>		
+				</div>
+				
+				<div class="col-sm-2 col-xs-3 text-right text-left-xs">
+					<strong class="visible-xs">Price</strong>
+					@orderline.Product.Price.WithVat.ToCurrencyString()
+				</div>
+				
+				<div class="col-sm-2 col-xs-3 text-right text-left-xs">
+					<strong class="visible-xs">Quantity</strong>
+					@orderline.Quantity
+				</div>
+					
+				<div class="col-sm-2 col-xs-6 text-right">
+					<span class="visible-xs">Orderline Total</span>
+					<strong>@orderline.Amount.WithVat.ToCurrencyString()</strong>
+				</div>
+			
+			</div>
+
+		}
+	}
+}

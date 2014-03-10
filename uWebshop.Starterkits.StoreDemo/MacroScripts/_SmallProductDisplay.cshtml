@@ -1,0 +1,44 @@
+﻿@using uWebshop.API
+	@{
+		
+		IEnumerable<IProduct> products = PageData[0];
+		
+		if(products != null) {
+			
+			<div class="row">
+			
+				@foreach (var product in products)
+				{					
+					<div class="col-sm-6 col-md-2 col-xs-6">
+						<div class="thumbnail">
+							<a href="@product.NiceUrl()" title="@product.Title">
+								@if (!product.Images.Any())
+								{
+									<img height="100" data-src="holder.js/100%x100/text:Image/" alt="..."/>
+								}
+								else
+								{
+									<img src="@product.Images.First().RelativePathToFile" height="100" alt="..."/>
+								}
+							</a>
+							<div class="caption">
+								<h5><strong>@product.Title</strong></h5>
+								<hr/>
+								<div class="row bottom-left">
+									<div class="col-sm-6 col-xs-6">
+										<p><a href="@product.NiceUrl()" title="@product.Title" class="btn btn-sm btn-info">Details</a></p>
+									</div>
+									
+									<div class="col-sm-6 col-xs-6">
+										@RenderPage("~/macroScripts/_SimpleAddToBasket.cshtml", product, "sm")
+									</div><!-- /col-md-4 -->
+								</div><!-- /row -->
+							</div><!-- /caption -->
+						</div> <!-- /thumbnail -->
+					</div> <!-- /col-sm-6 col-md-3 -->
+					
+				}
+			
+			</div>
+		}
+	}

@@ -1,0 +1,105 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+
+	Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="shortcut icon" href="assets/ico/favicon.png">
+
+		@RenderPage("~/Views/Partials/uWebshopMetaDescription.cshtml")
+	
+		<!-- Bootstrap core CSS -->
+		<link href="/css/bootstrap.css" rel="stylesheet">
+		<!-- <link href="/css/bootstrap-theme.css" rel="stylesheet"> -->
+		<!-- Custom styles for this template -->
+		<link href="/css/uWebshopStarterkit.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="/scripts/assets/html5shiv.js"></script>
+			<script src="/scripts/assets/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+			
+		@RenderPage("~/Views/Partials/uWebshopNavigation.cshtml")
+		
+		<div class="container">
+		
+			@RenderPage("~/Views/Partials/uWebshopActionResult.cshtml")
+			
+			@RenderBody()
+
+			<hr />
+			<div class="row">
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Change currency</h3>
+						</div>
+						<div class="panel-body">
+							@RenderPage("~/Views/Partials/_ChangeCurrency.cshtml")
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Service</h3>
+						</div>
+						<div class="panel-body">
+							<ul>
+								<li><a href="#">link</a></li>
+								<li><a href="#">link</a></li>
+								<li><a href="#">link</a></li>
+								<li><a href="#">link</a></li>
+								<li><a href="#">link</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Contact</h3>
+						</div>
+						<div class="panel-body">
+							<address>
+								<strong>uWebshop</strong><br>
+								3e Binnenvestgracht 24<br>
+								Leiden, The Netherlands<br>
+								<a href="/contact" title="Contact">contact</a>
+							</address>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<hr />
+		</div>
+		<!-- /container -->
+
+		<div id="footer">
+			<div class="container">
+				<p class="text-muted credit">&copy; uWebshop BV 2013<span class="pull-right">Powered by <a href="http://umbraco.com" title="Umbraco Content Management System">Umbraco</a> &amp; <a href="http://uWebshop.com" title="uWebshop E-commerece">uWebshop</a></span></p>
+			</div>
+		</div>
+	
+		<!-- Bootstrap core JavaScript -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="/scripts/assets/jquery.min.js"></script>
+		<script src="/scripts/assets/bootstrap.min.js"></script>
+		<script src="/scripts/assets/holder.js"></script>
+		<script src="/scripts/uWebshopStarterkit.js"></script>
+		<script src="/scripts/uWebshop/uWebshop.js"></script>
+	</body>
+</html>
+}

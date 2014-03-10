@@ -1,0 +1,83 @@
+﻿@*
+uWebshop Meta Description Example
+=================================
+This snippet helps you to create a meta description & title listing for your pages
+*@
+
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using umbraco.MacroEngines
+@using uWebshop.API;
+@{
+
+
+	var currentProduct = Catalog.GetProduct();
+	var currentCategory = Catalog.GetCategory();
+
+	if (currentProduct != null)
+	{
+		<title>@currentProduct.Title@Html.Raw(" - ")
+			@foreach (var item in new DynamicNode(currentProduct.Id).Path.Split(','))
+			{
+				var node = new DynamicNode(item);
+				if (node.NodeTypeAlias.StartsWith("uwbsCategory") && node.NodeTypeAlias != "uwbsCategoryRepository")
+				{
+					var category = Catalog.GetCategory(node.Id);
+					if (category != null)
+					{
+						@category.Title@Html.Raw(" - ")
+					}
+				}			}
+			@CurrentPage.Name
+		</title>
+	
+		<meta name="description" content="@currentProduct.MetaDescription" />
+		<meta name="keywords" content="@foreach (var tag in currentProduct.Tags)
+		                               {
+			                               @tag
+
+			                               if (tag != currentProduct.Tags.Last())
+			                               {
+				                               @Html.Raw(",")
+				                               ;
+			                               }
+		                               }"/>
+	}
+
+
+	
+
+	if (currentProduct == null && currentCategory != null)
+	{
+		<title>@foreach (var item in new DynamicNode(currentCategory.Id).Path.Split(','))
+			{
+				var node = new DynamicNode(item);
+				if (node.NodeTypeAlias.StartsWith("uwbsCategory") && node.NodeTypeAlias != "uwbsCategoryRepository")
+				{
+					var category = Catalog.GetCategory(node.Id);
+					if (category != null)
+					{
+						@category.Title@Html.Raw(" - ")
+					}
+				}			}
+			@CurrentPage.Name
+		</title>
+	
+		<meta name="description" content="@currentCategory.MetaDescription" />
+		<meta name="keywords" content="@foreach (var tag in currentCategory.Tags)
+		                               {
+			                               @tag
+
+			                               if (tag != currentCategory.Tags.Last())
+			                               {
+				                               @Html.Raw(",")
+				                               ;
+			                               }
+		                               }"/>
+	}
+
+	if (currentProduct == null && currentCategory == null)
+	{
+		<title>@CurrentPage.Name</title>
+		<meta name="description" content="" />
+	}
+}

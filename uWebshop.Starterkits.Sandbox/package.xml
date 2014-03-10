@@ -1,0 +1,1027 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<umbPackage>
+	<info>
+		<package>
+			<name>uWebshop Sandbox Starterkit</name>
+			<version>2.4.3.0</version>
+			<license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+			<url>http://www.uWebshop.com</url>
+			<requirements>
+				<major>4</major>
+				<minor>8</minor>
+				<patch>0</patch>
+			</requirements>
+		</package>
+		<author>
+			<name>uWebshop</name>
+			<website>http://www.uWebshop.com</website>
+		</author>
+		<readme>
+			<![CDATA[uWebshop 2.3.0.0 Sandbox Starterkit
+	  
+	  This package installs the Sandbox Starterkit for your uWebshop 2 Foundation Installation.
+	  
+	  Notice: This starterkit requires the uWebshop 2.3+ Foundation to be already installed!	
+	]]>
+		</readme>
+	</info>
+	<files>
+		<file>
+			<guid>uWebshopStarterkitInstaller.ascx</guid>
+			<orgPath>/usercontrols/uWebshop</orgPath>
+			<orgName>uWebshopStarterkitInstaller.ascx</orgName>
+		</file>
+		<file>
+			<guid>uWebshopBasket.cshtml</guid>
+			<orgPath>/macroScripts</orgPath>
+			<orgName>uWebshopBasket.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopCategory.cshtml</guid>
+			<orgPath>/macroScripts</orgPath>
+			<orgName>uWebshopCategory.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopCheckout.cshtml</guid>
+			<orgPath>/macroScripts</orgPath>
+			<orgName>uWebshopCheckout.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopLatestProducts.cshtml</guid>
+			<orgPath>/macroScripts</orgPath>
+			<orgName>uWebshopLatestProducts.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopMetaDescription.cshtml</guid>
+			<orgPath>/macroScripts</orgPath>
+			<orgName>uWebshopMetaDescription.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopMiniBasket.cshtml</guid>
+			<orgPath>/macroScripts</orgPath>
+			<orgName>uWebshopMiniBasket.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopNavigation.cshtml</guid>
+			<orgPath>/macroScripts</orgPath>
+			<orgName>uWebshopNavigation.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopPaging.cshtml</guid>
+			<orgPath>/macroScripts</orgPath>
+			<orgName>uWebshopPaging.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopProduct.cshtml</guid>
+			<orgPath>/macroScripts</orgPath>
+			<orgName>uWebshopProduct.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopRandomProducts.cshtml</guid>
+			<orgPath>/macroScripts</orgPath>
+			<orgName>uWebshopRandomProducts.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopTopSellingProducts.cshtml</guid>
+			<orgPath>/macroScripts</orgPath>
+			<orgName>uWebshopTopSellingProducts.cshtml</orgName>
+		</file>
+	</files>
+	<Documents>
+		<DocumentSet importMode="root">
+			<uwbsHomepage id="1135" parentID="-1" level="1" writerID="0" creatorID="0" nodeType="1132" template="1129"
+						  sortOrder="1" createDate="2008-05-02T09:52:36" updateDate="2012-10-26T15:30:47"
+						  nodeName="uWebshop 2 Sandbox" urlName="uwebshop-2-sandbox" writerName="admin" creatorName="admin"
+						  path="-1,1135" isDoc="">
+				<bodyText>
+					<![CDATA[<p>The uWebshop 2.0 Sandbox gives you a bare-bones website that introduces you to a set of well-defined conventions for building an uWebshop based webshop!</p>
+<p>This Sandbox is very basic in form and provided without any design or javascript, an easy way to get you started with a nice collection of HTML/Razor and XSLT! Of course all the uWebshop functionality is also available to use with Javascript/jQuery/JSON.</p>
+<p>uWebshop 2.0 can be easily integrated with any existing website or starterkit already available for Umbraco. In a few easy steps explained during installation you will have a fully working webshop without having to learn anything new or make big changes to your current site!</p>
+<p>If you see some errors try to publish the uWebshop Node + all children, to update the Examine cache.</p>]]>
+				</bodyText>
+				<siteName>uWebshop 2.0 Sandbox</siteName>
+				<siteDescription><![CDATA[An HTML only uWebshop 2.0 blank starter kit!]]></siteDescription>
+				<uwbsStorePicker><![CDATA[1128]]></uwbsStorePicker>
+				<uwbsBasket id="1148" parentID="1135" level="2" writerID="0" creatorID="0" nodeType="1144" template="1145"
+							sortOrder="4" createDate="2012-10-05T16:47:37" updateDate="2012-10-26T17:32:04" nodeName="Basket"
+							urlName="basket" writerName="admin" creatorName="admin" path="-1,1135,1148" isDoc="">
+					<bodyText><![CDATA[<p>uWebshop 2.0 basket example.</p>]]></bodyText>
+					<umbracoNaviHide>0</umbracoNaviHide>
+					<uwbsCheckout id="1149" parentID="1148" level="3" writerID="0" creatorID="0" nodeType="1146" template="1147"
+								  sortOrder="0" createDate="2012-10-05T16:47:54" updateDate="2012-10-26T13:36:54" nodeName="Checkout"
+								  urlName="checkout" writerName="admin" creatorName="admin" path="-1,1135,1148,1149" isDoc="">
+						<bodyText>
+							<![CDATA[<p>uWebshop 2.0 one-page-checkout example.</p>
+<p>The uWebshop baskethandler makes it possible to easily add all the checkout items on one page, or create diferent froms for each step.<br />This gives you total freedom to create the shop they way you want it to be!</p>]]>
+						</bodyText>
+						<umbracoNaviHide>0</umbracoNaviHide>
+						<uwbsTextpage id="1710" parentID="1149" level="4" writerID="0" creatorID="0" nodeType="1133" template="1131"
+									  sortOrder="1" createDate="2012-10-19T11:39:16" updateDate="2012-10-26T17:29:22" nodeName="Success"
+									  urlName="success" writerName="admin" creatorName="admin" path="-1,1135,1148,1149,1710" isDoc="">
+							<bodyText><![CDATA[<p>Success!</p>]]></bodyText>
+							<umbracoNaviHide>1</umbracoNaviHide>
+						</uwbsTextpage>
+						<uwbsTextpage id="1711" parentID="1149" level="4" writerID="0" creatorID="0" nodeType="1133" template="1131"
+									  sortOrder="2" createDate="2012-10-19T11:39:32" updateDate="2012-10-26T17:32:13" nodeName="Failed"
+									  urlName="failed" writerName="admin" creatorName="admin" path="-1,1135,1148,1149,1711" isDoc="">
+							<bodyText><![CDATA[<p>Failed :(</p>]]></bodyText>
+							<umbracoNaviHide>1</umbracoNaviHide>
+						</uwbsTextpage>
+					</uwbsCheckout>
+				</uwbsBasket>
+			</uwbsHomepage>
+		</DocumentSet>
+	</Documents>
+	<DocumentTypes>
+		<DocumentType>
+			<Info>
+				<Name>Textpage</Name>
+				<Alias>uwbsTextpage</Alias>
+				<Icon>.sprTreeDoc</Icon>
+				<Thumbnail>doc.png</Thumbnail>
+				<Description>This is the standard content page for a starter kit website.</Description>
+				<AllowedTemplates>
+					<Template>uwbsTextpage</Template>
+				</AllowedTemplates>
+				<DefaultTemplate>uwbsTextpage</DefaultTemplate>
+			</Info>
+			<Structure>
+				<DocumentType>uwbsTextpage</DocumentType>
+				<DocumentType>uwbsBasket</DocumentType>
+				<DocumentType>uwbsCheckout</DocumentType>
+			</Structure>
+			<GenericProperties>
+				<GenericProperty>
+					<Name>Body Text</Name>
+					<Alias>bodyText</Alias>
+					<Type>5e9b75ae-face-41c8-b47e-5f4b0fd82f83</Type>
+					<Definition>ca90c950-0aff-4e72-b976-a30b1ac57dad</Definition>
+					<Tab>Content</Tab>
+					<Mandatory>False</Mandatory>
+					<Validation>
+					</Validation>
+					<Description><![CDATA[]]></Description>
+				</GenericProperty>
+				<GenericProperty>
+					<Name>Hide in navigation</Name>
+					<Alias>umbracoNaviHide</Alias>
+					<Type>38b352c1-e9f8-4fd8-9324-9a2eab06d97a</Type>
+					<Definition>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</Definition>
+					<Tab>
+					</Tab>
+					<Mandatory>False</Mandatory>
+					<Validation>
+					</Validation>
+					<Description><![CDATA[]]></Description>
+				</GenericProperty>
+			</GenericProperties>
+			<Tabs>
+				<Tab>
+					<Id>52</Id>
+					<Caption>Content</Caption>
+				</Tab>
+			</Tabs>
+		</DocumentType>
+		<DocumentType>
+			<Info>
+				<Name>Basket</Name>
+				<Alias>uwbsBasket</Alias>
+				<Icon>clipboard-invoice.png</Icon>
+				<Thumbnail>folder.png</Thumbnail>
+				<Description>
+				</Description>
+				<Master>uwbsTextpage</Master>
+				<AllowedTemplates>
+					<Template>uwbsBasket</Template>
+				</AllowedTemplates>
+				<DefaultTemplate>uwbsBasket</DefaultTemplate>
+			</Info>
+			<Structure>
+				<DocumentType>uwbsTextpage</DocumentType>
+				<DocumentType>uwbsCheckout</DocumentType>
+			</Structure>
+			<GenericProperties />
+			<Tabs />
+		</DocumentType>
+		<DocumentType>
+			<Info>
+				<Name>Checkout</Name>
+				<Alias>uwbsCheckout</Alias>
+				<Icon>wallet.png</Icon>
+				<Thumbnail>folder.png</Thumbnail>
+				<Description>
+				</Description>
+				<Master>uwbsTextpage</Master>
+				<AllowedTemplates>
+					<Template>uwbsCheckout</Template>
+				</AllowedTemplates>
+				<DefaultTemplate>uwbsCheckout</DefaultTemplate>
+			</Info>
+			<Structure>
+				<DocumentType>uwbsTextpage</DocumentType>
+			</Structure>
+			<GenericProperties />
+			<Tabs />
+		</DocumentType>
+		<DocumentType>
+			<Info>
+				<Name>Homepage</Name>
+				<Alias>uwbsHomepage</Alias>
+				<Icon>bank.png</Icon>
+				<Thumbnail>folder.png</Thumbnail>
+				<Description>The homepage of a starter kit website.</Description>
+				<AllowedTemplates>
+					<Template>uwbsHomepage</Template>
+				</AllowedTemplates>
+				<DefaultTemplate>uwbsHomepage</DefaultTemplate>
+			</Info>
+			<Structure>
+				<DocumentType>uwbsTextpage</DocumentType>
+				<DocumentType>uwbsBasket</DocumentType>
+				<DocumentType>uwbsCheckout</DocumentType>
+			</Structure>
+			<GenericProperties>
+				<GenericProperty>
+					<Name>Body text</Name>
+					<Alias>bodyText</Alias>
+					<Type>5e9b75ae-face-41c8-b47e-5f4b0fd82f83</Type>
+					<Definition>ca90c950-0aff-4e72-b976-a30b1ac57dad</Definition>
+					<Tab>Content</Tab>
+					<Mandatory>False</Mandatory>
+					<Validation>
+					</Validation>
+					<Description><![CDATA[]]></Description>
+				</GenericProperty>
+				<GenericProperty>
+					<Name>Site Name</Name>
+					<Alias>siteName</Alias>
+					<Type>ec15c1e5-9d90-422a-aa52-4f7622c63bea</Type>
+					<Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+					<Tab>Site</Tab>
+					<Mandatory>False</Mandatory>
+					<Validation>
+					</Validation>
+					<Description><![CDATA[]]></Description>
+				</GenericProperty>
+				<GenericProperty>
+					<Name>Site Description</Name>
+					<Alias>siteDescription</Alias>
+					<Type>67db8357-ef57-493e-91ac-936d305e0f2a</Type>
+					<Definition>c6bac0dd-4ab9-45b1-8e30-e4b619ee5da3</Definition>
+					<Tab>Site</Tab>
+					<Mandatory>False</Mandatory>
+					<Validation>
+					</Validation>
+					<Description><![CDATA[]]></Description>
+				</GenericProperty>
+				<GenericProperty>
+					<Name>[#StorePicker]</Name>
+					<Alias>uwbsStorePicker</Alias>
+					<Type>5fa345e3-9352-45d6-adaa-2da6cdc9aca3</Type>
+					<Definition>5fa345e3-9352-45d6-adaa-2da6cdc9aca3</Definition>
+					<Tab>
+					</Tab>
+					<Mandatory>False</Mandatory>
+					<Validation>
+					</Validation>
+					<Description><![CDATA[]]></Description>
+				</GenericProperty>
+			</GenericProperties>
+			<Tabs>
+				<Tab>
+					<Id>50</Id>
+					<Caption>Site</Caption>
+				</Tab>
+				<Tab>
+					<Id>51</Id>
+					<Caption>Content</Caption>
+				</Tab>
+			</Tabs>
+		</DocumentType>
+	</DocumentTypes>
+	<Templates>
+		<Template>
+			<Name>Basket</Name>
+			<Alias>uwbsBasket</Alias>
+			<Master>uwbsSandboxMaster</Master>
+			<Design>
+				<![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsSandboxMaster.master" AutoEventWireup="true" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cp_content" runat="server">
+
+	<h2><umbraco:Item ID="Item1" runat="server" field="pageName"/></h2>
+
+	<umbraco:Item ID="Item2" runat="server" field="bodyText" />
+	
+	<umbraco:Macro Alias="uWebshopBasket" runat="server"/>
+
+</asp:Content>]]>
+			</Design>
+		</Template>
+		<Template>
+			<Name>Category</Name>
+			<Alias>uwbsCategory</Alias>
+			<Master>uwbsSandboxMaster</Master>
+			<Design>
+				<![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsSandboxMaster.master" AutoEventWireup="true" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cp_content" runat="server">
+
+	<umbraco:Macro Alias="uWebshopCategory" runat="server"/>
+
+</asp:Content>]]>
+			</Design>
+		</Template>
+		<Template>
+			<Name>Checkout</Name>
+			<Alias>uwbsCheckout</Alias>
+			<Master>uwbsSandboxMaster</Master>
+			<Design>
+				<![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsSandboxMaster.master" AutoEventWireup="true" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cp_content" runat="server">
+
+	<h2><umbraco:Item ID="Item1" runat="server" field="pageName"/></h2>
+   
+	<umbraco:Item ID="Item2" runat="server" field="bodyText" />
+	
+	<umbraco:Macro Alias="uWebshopCheckout" runat="server" />
+
+</asp:Content>]]>
+			</Design>
+		</Template>
+		<Template>
+			<Name>Homepage</Name>
+			<Alias>uwbsHomepage</Alias>
+			<Master>uwbsSandboxMaster</Master>
+			<Design>
+				<![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsSandboxMaster.master" AutoEventWireup="true" %>
+<asp:content contentplaceholderid="cp_content" runat="server">
+  
+	<umbraco:item runat="server" field="bodyText"/>
+	  
+	<umbraco:Macro Alias="uWebshopLatestProducts" runat="server" />
+	  
+	<umbraco:Macro Alias="uWebshopRandomProducts" runat="server"/>
+	
+	<umbraco:Macro Alias="uWebshopTopSellingProducts" runat="server" />
+	  
+	<umbraco:Macro Alias="uWebshopPaging" runat="server" />
+	 
+
+</asp:content>]]>
+			</Design>
+		</Template>
+		<Template>
+			<Name>Product</Name>
+			<Alias>uwbsProduct</Alias>
+			<Master>uwbsSandboxMaster</Master>
+			<Design>
+				<![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsSandboxMaster.master" AutoEventWireup="true" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cp_content" runat="server">
+
+	<umbraco:Macro Alias="uWebshopProduct" runat="server"/>
+
+</asp:Content>]]>
+			</Design>
+		</Template>
+		<Template>
+			<Name>Store</Name>
+			<Alias>Store</Alias>
+			<Master>uwbsSandboxMaster</Master>
+			<Design>
+				<![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsSandboxMaster.master" AutoEventWireup="true" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cp_content" runat="server">
+	
+	<h2><umbraco:Item ID="Item1" runat="server" field="pageName"/></h2>
+   
+	<umbraco:Item ID="Item2" runat="server" field="bodyText" />
+
+</asp:Content>]]>
+			</Design>
+		</Template>
+		<Template>
+			<Name>Textpage</Name>
+			<Alias>uwbsTextpage</Alias>
+			<Master>uwbsSandboxMaster</Master>
+			<Design>
+				<![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsSandboxMaster.master" AutoEventWireup="true" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cp_content" runat="server">
+	
+	<h2><umbraco:Item ID="Item1" runat="server" field="pageName"/></h2>
+   
+	<umbraco:Item ID="Item2" runat="server" field="bodyText" />
+
+</asp:Content>]]>
+			</Design>
+		</Template>
+		<Template>
+			<Name>uWebshop Sandbox Starterkit Master</Name>
+			<Alias>uwbsSandboxMaster</Alias>
+			<Design>
+				<![CDATA[<%@ Master Language="C#" MasterPageFile="~/umbraco/masterpages/default.master" AutoEventWireup="true" %>
+<asp:content id="Content1" contentplaceholderid="ContentPlaceHolderDefault" runat="server">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"[]> 
+<!--[if IE 9 ]><html class="ie9" xmlns="http://www.w3.org/1999/xhtml"> <![endif]--> 
+<!--[if (gt IE 9)|!(IE)]><!--> <html xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]--> 
+  
+  <head id="head" runat="server">
+	
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	  <umbraco:Macro Alias="uWebshopMetaDescription" runat="server" />
+	  
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+
+ 
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  
+
+  <asp:contentplaceholder id="cp_head" runat="server"></asp:contentplaceholder>
+</head>
+  
+  <body>    
+  
+	  
+	  <asp:contentplaceholder id="cp_top" runat="server">
+		  <h1><a href="/"><umbraco:item id="Item3" runat="server" field="siteName" recursive="true"></umbraco:item></a></h1>
+		  <h2><umbraco:item id="Item4" runat="server" field="siteDescription" recursive="true"></umbraco:item></h2>
+		  <umbraco:Macro Alias="uWebshopNavigation" runat="server" />
+		<umbraco:Macro Alias="uWebshopMiniBasket" runat="server"></umbraco:Macro>
+	  </asp:contentplaceholder>
+		
+	  <asp:contentplaceholder id="cp_content" runat="server"></asp:contentplaceholder>
+	 
+	<umbraco:Macro Alias="uWebshopBasketHandler" runat="server"></umbraco:Macro>
+  </body>
+</html> 
+</asp:content>]]>
+			</Design>
+		</Template>
+	</Templates>
+	<Stylesheets>
+		<Stylesheet>
+			<Name>normalize</Name>
+			<FileName>reset</FileName>
+			<Content>
+				<![CDATA[/*! normalize.css v2.0.1 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/*
+ * Corrects `block` display not defined in IE 8/9.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+	display: block;
+}
+
+/*
+ * Corrects `inline-block` display not defined in IE 8/9.
+ */
+
+audio,
+canvas,
+video {
+	display: inline-block;
+}
+
+/*
+ * Prevents modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+/*
+ * Addresses styling for `hidden` attribute not present in IE 8/9.
+ */
+
+[hidden] {
+	display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * 1. Sets default font family to sans-serif.
+ * 2. Prevents iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+	font-family: sans-serif; /* 1 */
+	-webkit-text-size-adjust: 100%; /* 2 */
+	-ms-text-size-adjust: 100%; /* 2 */
+}
+
+/*
+ * Removes default margin.
+ */
+
+body {
+	margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/*
+ * Addresses `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+	outline: thin dotted;
+}
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+	outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/*
+ * Addresses `h1` font sizes within `section` and `article` in Firefox 4+,
+ * Safari 5, and Chrome.
+ */
+
+h1 {
+	font-size: 2em;
+}
+
+/*
+ * Addresses styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+/*
+ * Addresses style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+
+b,
+strong {
+	font-weight: bold;
+}
+
+/*
+ * Addresses styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+	font-style: italic;
+}
+
+/*
+ * Addresses styling not present in IE 8/9.
+ */
+
+mark {
+	background: #ff0;
+	color: #000;
+}
+
+
+/*
+ * Corrects font family set oddly in Safari 5 and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace, serif;
+	font-size: 1em;
+}
+
+/*
+ * Improves readability of pre-formatted text in all browsers.
+ */
+
+pre {
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+/*
+ * Sets consistent quote types.
+ */
+
+q {
+	quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/*
+ * Addresses inconsistent and variable font size in all browsers.
+ */
+
+small {
+	font-size: 80%;
+}
+
+/*
+ * Prevents `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/*
+ * Removes border when inside `a` element in IE 8/9.
+ */
+
+img {
+	border: 0;
+}
+
+/*
+ * Corrects overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/*
+ * Addresses margin not present in IE 8/9 and Safari 5.
+ */
+
+figure {
+	margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/*
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+	border: 1px solid #c0c0c0;
+	margin: 0 2px;
+	padding: 0.35em 0.625em 0.75em;
+}
+
+/*
+ * 1. Corrects color not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+	border: 0; /* 1 */
+	padding: 0; /* 2 */
+}
+
+/*
+ * 1. Corrects font family not being inherited in all browsers.
+ * 2. Corrects font size not being inherited in all browsers.
+ * 3. Addresses margins set differently in Firefox 4+, Safari 5, and Chrome
+ */
+
+button,
+input,
+select,
+textarea {
+	font-family: inherit; /* 1 */
+	font-size: 100%; /* 2 */
+	margin: 0; /* 3 */
+}
+
+/*
+ * Addresses Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+	line-height: normal;
+}
+
+/*
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Corrects inability to style clickable `input` types in iOS.
+ * 3. Improves usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button; /* 2 */
+	cursor: pointer; /* 3 */
+}
+
+/*
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+input[disabled] {
+	cursor: default;
+}
+
+/*
+ * 1. Addresses box sizing set to `content-box` in IE 8/9.
+ * 2. Removes excess padding in IE 8/9.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box; /* 1 */
+	padding: 0; /* 2 */
+}
+
+/*
+ * 1. Addresses `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+	-webkit-appearance: textfield; /* 1 */
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box; /* 2 */
+	box-sizing: content-box;
+}
+
+/*
+ * Removes inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/*
+ * Removes inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+/*
+ * 1. Removes default vertical scrollbar in IE 8/9.
+ * 2. Improves readability and alignment in all browsers.
+ */
+
+textarea {
+	overflow: auto; /* 1 */
+	vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/*
+ * Remove most spacing between table cells.
+ */
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+body {
+	margin: 1em;
+}
+
+
+]]>
+			</Content>
+		</Stylesheet>
+	</Stylesheets>
+	<Macros>
+		<macro>
+			<name>uWebshop Basket</name>
+			<alias>uWebshopBasket</alias>
+			<scriptType>
+			</scriptType>
+			<scriptAssembly>
+			</scriptAssembly>
+			<xslt>
+			</xslt>
+			<useInEditor>False</useInEditor>
+			<refreshRate>0</refreshRate>
+			<scriptingFile>uWebshopBasket.cshtml</scriptingFile>
+			<properties />
+		</macro>
+		<macro>
+			<name>uWebshop Category</name>
+			<alias>uWebshopCategory</alias>
+			<scriptType>
+			</scriptType>
+			<scriptAssembly>
+			</scriptAssembly>
+			<xslt>
+			</xslt>
+			<useInEditor>False</useInEditor>
+			<refreshRate>0</refreshRate>
+			<scriptingFile>uWebshopCategory.cshtml</scriptingFile>
+			<properties />
+		</macro>
+		<macro>
+			<name>uWebshop Checkout</name>
+			<alias>uWebshopCheckout</alias>
+			<scriptType>
+			</scriptType>
+			<scriptAssembly>
+			</scriptAssembly>
+			<xslt>
+			</xslt>
+			<useInEditor>False</useInEditor>
+			<refreshRate>0</refreshRate>
+			<scriptingFile>uWebshopCheckout.cshtml</scriptingFile>
+			<properties />
+		</macro>
+		<macro>
+			<name>uWebshop Latest Products</name>
+			<alias>uWebshopLatestProducts</alias>
+			<scriptType>
+			</scriptType>
+			<scriptAssembly>
+			</scriptAssembly>
+			<xslt>
+			</xslt>
+			<useInEditor>False</useInEditor>
+			<refreshRate>0</refreshRate>
+			<scriptingFile>uWebshopLatestProducts.cshtml</scriptingFile>
+			<properties />
+		</macro>
+		<macro>
+			<name>uWebshop Meta Description</name>
+			<alias>uWebshopMetaDescription</alias>
+			<scriptType>
+			</scriptType>
+			<scriptAssembly>
+			</scriptAssembly>
+			<xslt>
+			</xslt>
+			<useInEditor>False</useInEditor>
+			<refreshRate>0</refreshRate>
+			<scriptingFile>uWebshopMetaDescription.cshtml</scriptingFile>
+			<properties />
+		</macro>
+		<macro>
+			<name>uWebshop Mini Basket</name>
+			<alias>uWebshopMiniBasket</alias>
+			<scriptType>
+			</scriptType>
+			<scriptAssembly>
+			</scriptAssembly>
+			<xslt>
+			</xslt>
+			<useInEditor>False</useInEditor>
+			<refreshRate>0</refreshRate>
+			<scriptingFile>uWebshopMiniBasket.cshtml</scriptingFile>
+			<properties />
+		</macro>
+		<macro>
+			<name>uWebshop Navigation</name>
+			<alias>uWebshopNavigation</alias>
+			<scriptType>
+			</scriptType>
+			<scriptAssembly>
+			</scriptAssembly>
+			<xslt>
+			</xslt>
+			<useInEditor>False</useInEditor>
+			<refreshRate>0</refreshRate>
+			<scriptingFile>uWebshopNavigation.cshtml</scriptingFile>
+			<properties />
+		</macro>
+		<macro>
+			<name>uWebshop Paging</name>
+			<alias>uWebshopPaging</alias>
+			<scriptType>
+			</scriptType>
+			<scriptAssembly>
+			</scriptAssembly>
+			<xslt>
+			</xslt>
+			<useInEditor>True</useInEditor>
+			<refreshRate>0</refreshRate>
+			<scriptingFile>uWebshopPaging.cshtml</scriptingFile>
+			<properties />
+		</macro>
+		<macro>
+			<name>uWebshop Product</name>
+			<alias>uWebshopProduct</alias>
+			<scriptType>
+			</scriptType>
+			<scriptAssembly>
+			</scriptAssembly>
+			<xslt>
+			</xslt>
+			<useInEditor>False</useInEditor>
+			<refreshRate>0</refreshRate>
+			<scriptingFile>uWebshopProduct.cshtml</scriptingFile>
+			<properties />
+		</macro>
+		<macro>
+			<name>uWebshop Random Products</name>
+			<alias>uWebshopRandomProducts</alias>
+			<scriptType>
+			</scriptType>
+			<scriptAssembly>
+			</scriptAssembly>
+			<xslt>
+			</xslt>
+			<useInEditor>False</useInEditor>
+			<refreshRate>0</refreshRate>
+			<scriptingFile>uWebshopRandomProducts.cshtml</scriptingFile>
+			<properties />
+		</macro>
+		<macro>
+			<name>uWebshop Store Node</name>
+			<alias>uWebshopStoreNode</alias>
+			<scriptType>
+			</scriptType>
+			<scriptAssembly>
+			</scriptAssembly>
+			<xslt>
+			</xslt>
+			<useInEditor>False</useInEditor>
+			<refreshRate>0</refreshRate>
+			<scriptingFile>uWebshopStoreNode.cshtml</scriptingFile>
+			<properties />
+		</macro>
+		<macro>
+			<name>uWebshop Top Selling Products</name>
+			<alias>uWebshopTopSellingProducts</alias>
+			<scriptType>
+			</scriptType>
+			<scriptAssembly>
+			</scriptAssembly>
+			<xslt>
+			</xslt>
+			<useInEditor>False</useInEditor>
+			<refreshRate>0</refreshRate>
+			<scriptingFile>uWebshopTopSellingProducts.cshtml</scriptingFile>
+			<properties />
+		</macro>
+	</Macros>
+	<DictionaryItems />
+	<Languages />
+	<DataTypes />
+	<control>/usercontrols/uWebshop/uWebshopStarterkitInstaller.ascx</control>
+</umbPackage>

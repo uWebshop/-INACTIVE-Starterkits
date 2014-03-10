@@ -1,0 +1,84 @@
+﻿@using System.Configuration
+@using System.Web.Profile
+@using uWebshop.API
+
+@{
+	var member = Membership.GetUser();
+
+	if (member != null)
+	 {
+		 var profile = ProfileBase.Create(member.UserName);
+
+		 using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "form-horizontal"}))
+		 {
+			 <input type="hidden" name="updateaccount" value="true"/>
+
+			 <h3>Your Profile</h3>
+			 <div class="form-group">
+				 <label class="col-lg-4 control-label" for="email">Email</label>
+				 <div class="col-lg-8">
+					 <input class="form-control" name="email" id="email" type="text" value="@member.Email"/>
+				 </div>
+			 </div>
+			 <div class="form-group">
+				 <label class="col-lg-4 control-label" for="customerFirstName">Firstname</label>
+				 <div class="col-lg-8">
+					 <input class="form-control"name="customerFirstName" id="customerFirstName" type="text" value="@profile["customerFirstName"]"/>
+				 </div>
+			 </div>
+			 <div class="form-group">
+				 <label class="col-lg-4 control-label" for="customerLastName">Lastname</label>
+				 <div class="col-lg-8">
+					 <input class="form-control"name="customerLastName" id="customerLastName" type="text" value="@profile["customerLastName"]"/>
+				 </div>
+			 </div>
+			 <div class="form-group">
+				 <label class="col-lg-4 control-label" for="customerStreet">Street</label>
+				 <div class="col-lg-8">
+					 <input class="form-control"name="customerStreet" id="customerStreet" type="text" value="@profile["customerStreet"]"/>
+				 </div>
+			 </div>
+			 <div class="form-group">
+				 <label class="col-lg-4 control-label" for="customerStreetNumber">Streetnumber</label>
+				 <div class="col-lg-8">
+					 <input class="form-control"name="customerStreetNumber" id="customerStreetNumber" type="text" value="@profile["customerStreetNumber"]"/>
+				 </div>
+			 </div>
+			 <div class="form-group">
+				 <label class="col-lg-4 control-label" for="customerZipCode">Zipcode</label>
+				 <div class="col-lg-8">
+					 <input class="form-control"name="customerZipCode" id="customerZipCode" type="text" value="@profile["customerZipCode"]"/>
+				 </div>
+			 </div>
+			 <div class="form-group">
+				 <label class="col-lg-4 control-label" for="customerCity">City</label>
+				 <div class="col-lg-8">
+					 <input class="form-control"name="customerCity" id="customerCity" type="text" value="@profile["customerCity"]"/>
+				 </div>
+			 </div>
+			 <div class="form-group">
+				 <label class="col-lg-4 control-label" for="customerCountry">Country: </label>
+				 <div class="col-lg-8">
+					 <select class="form-control" name="customerCountry" id="customerCountry" >
+						 <option disabled="disabled">(please select a country)</option>
+						 @foreach (var country in Store.GetAllCountries())
+						 {
+							 var itemSelected = "";
+							 if (profile["customercountry"].ToString() == country.Code)
+							 {
+								 itemSelected = "selected=\"selected\"";
+							 }
+							 <option @Html.Raw(itemSelected) value="@country.Code">@country.Name</option>
+						 }
+					 </select>
+				 </div>
+			 </div>
+			 <div class="form-group">
+				 <div class="col-lg-8 col-lg-offset-4">
+					 <button type="submit" class="btn btn-success">Update profile</button>
+				 </div>
+			 </div>
+
+		 }
+	 }
+}

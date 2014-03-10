@@ -1,0 +1,13 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/uWebshopMaster.master" AutoEventWireup="true" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cp_content" runat="server">
+	
+	<h2><umbraco:Item ID="Item1" runat="server" field="pageName"/></h2>
+   
+	<umbraco:Item ID="Item2" runat="server" field="bodyText" />
+	
+	
+	<asp:ContentPlaceHolder Id="ProfileModule" runat="server"/>
+
+
+</asp:Content>

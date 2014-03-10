@@ -1,0 +1,81 @@
+﻿@*
+uWebshop Razor Example: Category Details
+=================================
+You can use this example to display category information based on the category url.
+*@
+
+@using uWebshop.RazorExtensions
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+	// get current category based on category url
+	var currentCategory = Catalog.Category();
+
+	if (currentCategory != null)
+	{
+		<h2>This is a category page for the <em>@currentCategory.Title</em> category</h2>
+		<p>This is an example of a category page in uWebshop 2.0. It contains various code examples to list the category details</p>
+		@Html.Raw(currentCategory.Description)
+
+		if (currentCategory.Images.Any())
+		{
+			<h3>Images of the <em>@currentCategory.Title</em> category</h3>
+			foreach (var image in @currentCategory.Images)
+			{
+				var imageNode = Model.MediaById(image.Id);
+				<img src="@imageNode.umbracoFile" alt="@imageNode.altText" />
+			}
+		}
+
+		if (currentCategory.SubCategories.Any())
+		{
+			<h3>There are @currentCategory.SubCategories.Count() Subcategories in the <em>@currentCategory.Title</em> category:</h3>
+			<ul>
+				@RenderCategories(currentCategory)
+			</ul>
+		}
+
+
+		if (currentCategory.Products.Any())
+		{
+			<h3>There are @currentCategory.Products.Count() Products in the <em>@currentCategory.Title</em> category</h3>
+			<p>The products are ordered by title</p>
+			<ul>
+				@RenderProducts(currentCategory)
+			</ul>
+		}
+	}
+}
+
+
+@helper RenderCategories(uWebshop.Domain.Interfaces.ICategory category)
+{
+	if (category.SubCategories.Any())
+	{
+		foreach (var subcategory in category.SubCategories.OrderBy(x => x.SortOrder))
+		{
+			<li>
+				<a href="@subcategory.NiceUrl()" title="@subcategory.Title">@subcategory.Title</a>
+        
+				@if (subcategory.SubCategories.Any())
+				{
+					<ul>
+						@RenderCategories(subcategory)
+					</ul>
+				}
+			</li>
+		}
+	}
+}
+
+@helper RenderProducts(uWebshop.Domain.Interfaces.ICategory category)
+{
+	if (category.Products.Any())
+	{
+		foreach (var product in category.Products.OrderBy(x => x.Title))
+		{
+			<li>
+				<a href="@product.NiceUrl()" title="@product.Title">@product.Title</a>
+			</li>
+		}
+	}
+}

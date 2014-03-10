@@ -1,0 +1,226 @@
+﻿@*
+uWebshop One Page Checkout
+=================================
+This snippet gives you a deafult one-page-checkout example
+uWebshop uses a default html <form> to update the basket. Keep in mind that if you add this code within a <form runat="server"> block that .net will remove the <form> tags from this code and basketupdates won't work!
+*@
+
+@using uWebshop.API
+
+@{
+	var basket = Basket.GetBasket();
+
+	if (basket != null)
+	{
+		using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "form-horizontal"}))
+		{
+
+			<div class="row">
+				<div class="col-sm-6">
+					
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title"><span class="glyphicon glyphicon-plane"></span> Choose Shipping Method</h3>
+						</div>
+						<div class="panel-body">
+							@{
+								var fulfillmentproviders = Basket.GetFulfillmentProviders();
+								foreach (var shippingProvider in fulfillmentproviders)
+								{
+									foreach (var shippingProviderMethod in shippingProvider.Methods)
+									{
+										var itemChecked = "";
+										if (basket.Fulfillment.Providers.Any())
+										{
+											if (basket.Fulfillment.Providers.First().Id == shippingProvider.Id && basket.Fulfillment.Providers.First().MethodId == shippingProviderMethod.Id)
+											{
+												itemChecked = "checked=\"checked\"";
+											}
+										}
+										if (fulfillmentproviders.Count() == 1)
+										{
+											itemChecked = "checked=\"checked\"";
+										}
+										<div class="form-group">
+											<div class="radio col-sm-offset-1">
+												<label>
+													<input type="radio" name="shippingProvider" id="@shippingProvider.Id-@shippingProviderMethod.Id" value="@shippingProvider.Id-@shippingProviderMethod.Id" @Html.Raw(itemChecked)>
+													@if (shippingProvider.Title == shippingProviderMethod.Title)
+													{
+														@shippingProviderMethod.Title
+														@Html.Raw(" (")@shippingProviderMethod.Amount.WithVat.ToCurrencyString()
+														@Html.Raw(")")
+													}
+													else
+													{
+														<strong>@shippingProvider.Title</strong>
+														@shippingProviderMethod.Title
+													}			
+												</label>
+											</div>
+										</div>
+									}
+								}
+							}
+				
+						</div>
+					</div>
+			
+				</div>
+				<div class="col-sm-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title"><span class="glyphicon glyphicon-credit-card"></span> Choose Payment Method</h3>
+						</div>
+						<div class="panel-body">
+							@{
+								var paymentProviders = Basket.GetPaymentProviders();
+
+								foreach (var paymentProvider in paymentProviders)
+								{
+									foreach (var paymentProviderMethod in paymentProvider.Methods)
+									{
+										var itemChecked = "";
+										if (basket.Payment.Providers.Count() > 1)
+										{
+											if (basket.Payment.Providers.First().Id == paymentProvider.Id && basket.Payment.Providers.First().MethodId == paymentProviderMethod.Id)
+											{
+												itemChecked = "checked=\"checked\"";
+											}
+										}
+										else if (paymentProviders.Count() == 1)
+										{
+											itemChecked = "checked=\"checked\"";
+										}
+										<div class="form-group">
+											<div class="radio col-sm-offset-1">
+												<label>
+													<input type="radio" name="paymentProvider" id="@paymentProvider.Id-@paymentProviderMethod.Id" value="@paymentProvider.Id-@paymentProviderMethod.Id" @Html.Raw(itemChecked)>
+													@if (paymentProvider.Title == paymentProviderMethod.Title)
+													{
+														@paymentProviderMethod.Title
+														@Html.Raw(" (")@paymentProviderMethod.Amount.WithVat.ToCurrencyString()
+														@Html.Raw(")")
+													}
+													else
+													{
+														<strong>@paymentProvider.Title</strong>
+														@paymentProvider.Title
+													}			
+												</label>
+											</div>
+										</div>
+									}
+								}
+							}
+						</div>
+					</div>
+					
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-check"></span> Review your order</h3>
+				</div>
+				<div class="panel-body">
+				
+					@RenderPage("~/Views/Partials/_OrderOrderLines.cshtml", basket.OrderLines)
+
+				</div>
+				<div class="panel-footer">
+					<div class="row">
+						<div class="col-sm-6 col-sm-offset-6">
+							<ul class="list-group">
+								@if (basket.OrderAmount.Discount.WithVat.Value > 0)
+								{
+									<li class="list-group-item">
+										<span class="badge">- @basket.OrderAmount.Discount.WithVat.ToCurrencyString()</span>
+										Order discount With Vat
+									</li>
+								}
+								<li class="list-group-item">
+									<span class="badge">@basket.SubTotal.ToCurrencyString()</span>
+									Subtotal
+								</li>
+								@if (basket.OrderAmount.Vat.Value > 0)
+								{
+									<li class="list-group-item">
+										<span class="badge">@basket.OrderAmount.Vat.ToCurrencyString()</span>
+										TotalVat
+									</li>
+								}
+								<li class="list-group-item">
+									<span class="pull-left">Grandtotal</span>
+									<h3 class="text-right text-success">@basket.ChargedOrderAmount.ToCurrencyString()</h3>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> Review your details</h3>
+				</div>
+				<div class="panel-body">
+					@RenderPage("~/Views/Partials/_CustomerOrderDetails.cshtml", basket)
+				</div>
+			</div>
+
+
+			if (basket.ValidationResults.All.Any())
+			{
+				<h3>Order Validation Errors</h3>
+				<p>A list of validation problems that need to be fixed before the order can be confirmed.</p>
+
+				foreach (var error in basket.ValidationResults.All)
+				{
+					var dictionaryError = library.GetDictionaryItem(error.Key);
+
+					<div class="alert alert-danger">
+						<span class="glyphicon glyphicon-warning-sign"></span>
+						@if (!string.IsNullOrEmpty(dictionaryError))
+						{
+							@dictionaryError
+						}
+						else
+						{
+							@error.Value
+						}
+					</div>
+				}
+			}
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2 class="panel-title"><span class="glyphicon glyphicon-check"></span> Confirm the order</h2>
+				</div>
+				<div class="panel-body">
+					<p>To be able to confirm the order the terms &amp; conditions should be accepted.</p>
+					<p>If the order is succesfull you will be redirected to the payment provider payment page, the page to enter your payment details or the success page.</p>
+				
+					
+				</div>
+				<div class="panel-footer">
+					<input type="hidden" id="confirm" name="confirm" value="confirm"/>
+					<div class="row">
+						<div class="col-sm-offset-6 col-sm-6 text-right text-center-xs">
+							<div class="checkbox">
+								<label class="pull-right">
+									<input id="acceptterms" type="checkbox" name="acceptterms" value="true"> Yes, I accept the  terms &amp; conditions
+								</label>
+							</div>
+							<br/>
+							<button type="submit" class="btn btn-lg btn-success" value="Confirm Order"><span class="glyphicon glyphicon-ok"></span> Confirm &amp; Pay</button>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+
+
+		}
+	}
+}

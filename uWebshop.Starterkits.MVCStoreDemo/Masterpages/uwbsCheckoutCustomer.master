@@ -1,0 +1,6 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsCheckout.master" AutoEventWireup="true" %>
+
+	
+<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/uWebshopCheckoutCustomer.cshtml")
+	</umbraco:Macro>

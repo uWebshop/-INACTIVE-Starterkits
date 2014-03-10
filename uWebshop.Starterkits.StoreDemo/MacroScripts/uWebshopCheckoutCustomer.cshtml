@@ -1,0 +1,227 @@
+@using uWebshop.API
+
+@{
+	var basket = Basket.GetBasket();
+
+	if (basket != null)
+	{
+		var action = "";
+		if (Model.Children.Any())
+		{
+			action = Model.Children[0].Url;
+		}
+		<form name="customerform" action="@action" class="form-horizontal" method="post" role="form">
+			
+				
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									Billing Address
+								</div>
+								<div class="panel-body">
+									
+								<div class="form-group">
+									<label class="col-lg-4 control-label" for="customerEmail">Email</label>
+									<div class="col-lg-8">
+										<input class="form-control"name="customerEmail" id="customerEmail" type="text" value="@basket.Customer.Email"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-4 control-label" for="customerFirstName">Firstname</label>
+									<div class="col-lg-8">
+										<input class="form-control"name="customerFirstName" id="customerFirstName" type="text" value="@basket.Customer.FirstName"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-4 control-label" for="customerLastName">Lastname</label>
+									<div class="col-lg-8">
+										<input class="form-control"name="customerLastName" id="customerLastName" type="text" value="@basket.Customer.LastName"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-4 control-label" for="customerStreet">Street</label>
+									<div class="col-lg-8">
+										<input class="form-control"name="customerStreet" id="customerStreet" type="text" value="@basket.Customer.Street"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-4 control-label" for="customerStreetNumber">Streetnumber</label>
+									<div class="col-lg-8">
+										<input class="form-control"name="customerStreetNumber" id="customerStreetNumber" type="text" value="@basket.Customer.StreetNumber"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-4 control-label" for="customerZipCode">Zipcode</label>
+									<div class="col-lg-8">
+										<input class="form-control"name="customerZipCode" id="customerZipCode" type="text" value="@basket.Customer.ZipCode"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-4 control-label" for="customerCity">City</label>
+									<div class="col-lg-8">
+										<input class="form-control"name="customerCity" id="customerCity" type="text" value="@basket.Customer.City"/>
+									</div>
+								</div>
+									<div class="form-group">
+										<label class="col-lg-4 control-label" for="customerCountry">Country: </label>
+										<div class="col-lg-8">
+											<select class="form-control" name="customerCountry" id="customerCountry" >
+												<option value="@Store.GetStore().CountryCode">--please select a country--</option>
+												@foreach (var country in Store.GetAllCountries())
+												{
+													var itemSelected = "";
+													if (basket.Customer.CountryCode == country.Code)
+													{
+														itemSelected = "selected=\"selected\"";
+													}
+													<option @Html.Raw(itemSelected) value="@country.Code">@country.Name</option>
+												}
+											</select>
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+				
+						<div class="col-sm-6">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									Delivery Address
+								</div>
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-lg-8 col-lg-offset-4">
+											<div class="checkbox">
+													<label>
+													@{
+														var checkString = "checked=\"checked\"";
+
+														if (!basket.Customer.CustomerIsShipping)
+														{
+															checkString = "";
+														}
+													
+														<input id="customerisshipping" name="customerisshipping" type="checkbox" @Html.Raw(checkString)/> @Html.Raw("Shipping address is billing address")
+													}
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-4 control-label" for="shippingFirstName">Firstname</label>
+										<div class="col-lg-8">
+											<input class="form-control"name="shippingFirstName" id="shippingFirstName" type="text" value="@basket.Customer.Shipping.FirstName"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-4 control-label" for="shippingLastName">Lastname</label>
+										<div class="col-lg-8">
+											<input class="form-control"name="shippingLastName" id="shippingLastName" type="text" value="@basket.Customer.Shipping.LastName"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-4 control-label" for="shippingStreet">Street</label>
+										<div class="col-lg-8">
+											<input class="form-control"name="shippingStreet" id="shippingStreet" type="text" value="@basket.Customer.Shipping.Street"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-4 control-label" for="shippingStreetNumber">Streetnumber</label>
+										<div class="col-lg-8">
+											<input class="form-control"name="shippingStreetNumber" id="shippingStreetNumber" type="text" value="@basket.Customer.Shipping.StreetNumber"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-4 control-label" for="shippingZipCode">Zipcode</label>
+										<div class="col-lg-8">
+											<input class="form-control"name="shippingZipCode" id="shippingZipCode" type="text" value="@basket.Customer.Shipping.ZipCode"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-4 control-label" for="shippingCity">City</label>
+										<div class="col-lg-8">
+											<input class="form-control"name="shippingCity" id="shippingCity" type="text" value="@basket.Customer.Shipping.City"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-4 control-label" for="shippingCountry">Country: </label>
+										<div class="col-lg-8">
+											<select class="form-control" name="shippingCountry" id="shippingCountry" >
+												<option value="@Store.GetStore().CountryCode">--please select a country--</option>
+												@foreach (var country in Store.GetAllCountries())
+												{
+													var itemSelected = "";
+													if (basket.Customer.Shipping.CountryCode == country.Code)
+													{
+														itemSelected = "selected=\"selected\"";
+													}
+													<option @Html.Raw(itemSelected) value="@country.Code">@country.Name</option>
+												}
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>   
+			<div class="row">
+				
+				<div class="col-sm-6 col-sm-push-6">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="form-group">
+								<label  class="col-lg-4 control-label" for="extraMessage">Comments on your order?</label>
+								<div class="col-lg-8">
+									<textarea class="form-control" name="extraMessage" id="extraMessage" type="text" rows="5" cols="60">@{
+										                                                                                                    var value = basket.OrderFields.GetValue<string>("extraMessage");
+										                                                                                                    @value}</textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+					@if (basket.ValidationResults.Customer.Any())
+					{
+						<h3>Order Validation Errors</h3>
+						<p>A list of validation problems that need to be fixed before the order can be confirmed.</p>
+
+						foreach (var error in basket.ValidationResults.Customer)
+						{
+							var dictionaryError = library.GetDictionaryItem(error.Key);
+
+							<div class="alert alert-danger">
+								<span class="glyphicon glyphicon-warning-sign"></span>
+								@if (!string.IsNullOrEmpty(dictionaryError))
+								{
+									@dictionaryError
+								}
+								else
+								{
+									@error.Value
+								}
+							</div>
+						}
+					}
+		
+		
+			
+			
+					@if (Model.Children.Any())
+					{
+						<input type="hidden" name="validatecustomer" value="true"/>
+						<input type="hidden" name="backtoreferreronerror" value="true" />
+						<div class="row">
+							<div class="col-sm-6 col-sm-offset-6 text-right text-center-xs">
+								<button class="btn btn-lg btn-success">Continue to @Model.Children[0].Name</button>
+							</div>
+						</div>
+					}
+			
+		</form>
+	}
+
+}

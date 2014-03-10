@@ -1,0 +1,945 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<umbPackage>
+	<info>
+		<package>
+			<name>uWebshop Webforms Demoshop</name>
+			<version>2.4.3.0</version>
+			<license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+			<url>http://www.uWebshop.com</url>
+			<requirements>
+				<major>6</major>
+				<minor>0</minor>
+				<patch>0</patch>
+			</requirements>
+		</package>
+		<author>
+			<name>uWebshop</name>
+			<website>http://www.uWebshop.com</website>
+		</author>
+		<readme>
+			<![CDATA[uWebshop 2.4 Webforms Demoshop
+	  
+	  This package installs the Webforms demoshop for your uWebshop Foundation Installation.
+	  
+	  Notice: This demoshop requires the uWebshop 2.4+ Foundation to be already installed!	
+	]]>
+		</readme>
+	</info>
+	<files>
+		<!-- Usercontrol -->
+		<file>
+			<guid>uWebshopDemoStarterkitInstaller.ascx</guid>
+			<orgPath>/App_Plugins/uWebshop/installers/</orgPath>
+			<orgName>uWebshopDemoStarterkitInstaller.ascx</orgName>
+		</file>
+		<!-- Css -->
+		<file>
+			<guid>bootstrap.css</guid>
+			<orgPath>/Css</orgPath>
+			<orgName>bootstrap.css</orgName>
+		</file>
+		<file>
+			<guid>uWebshopStarterkit.css</guid>
+			<orgPath>/Css</orgPath>
+			<orgName>uWebshopStarterkit.css</orgName>
+		</file>
+		<!-- JS -->
+		<file>
+			<guid>uWebshopStarterkit.js</guid>
+			<orgPath>/Scripts</orgPath>
+			<orgName>uWebshopStarterkit.js</orgName>
+		</file>
+		<file>
+			<guid>bootstrap.min.js</guid>
+			<orgPath>/Scripts/Assets</orgPath>
+			<orgName>bootstrap.min.js</orgName>
+		</file>
+		<file>
+			<guid>holder.js</guid>
+			<orgPath>/Scripts/Assets</orgPath>
+			<orgName>holder.js</orgName>
+		</file>
+		<file>
+			<guid>html5shiv.js</guid>
+			<orgPath>/Scripts/Assets</orgPath>
+			<orgName>html5shiv.js</orgName>
+		</file>
+		<file>
+			<guid>jquery.min.js</guid>
+			<orgPath>/Scripts/Assets</orgPath>
+			<orgName>jquery.min.js</orgName>
+		</file>
+		<file>
+			<guid>respond.min.js</guid>
+			<orgPath>/Scripts/Assets</orgPath>
+			<orgName>respond.min.js</orgName>
+		</file>
+		<!-- Fonts -->
+		<file>
+			<guid>glyphicons-halflings-regular.eot</guid>
+			<orgPath>/fonts</orgPath>
+			<orgName>glyphicons-halflings-regular.eot</orgName>
+		</file>
+		<file>
+			<guid>glyphicons-halflings-regular.svg</guid>
+			<orgPath>/fonts</orgPath>
+			<orgName>glyphicons-halflings-regular.svg</orgName>
+		</file>
+		<file>
+			<guid>glyphicons-halflings-regular.ttf</guid>
+			<orgPath>/fonts</orgPath>
+			<orgName>glyphicons-halflings-regular.ttf</orgName>
+		</file>
+		<file>
+			<guid>glyphicons-halflings-regular.woff</guid>
+			<orgPath>/fonts</orgPath>
+			<orgName>glyphicons-halflings-regular.woff</orgName>
+		</file>
+		<!-- Razor -->
+		<file>
+			<guid>CrumblePath.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>CrumblePath.cshtml</orgName>
+		</file>
+		<file>
+			<guid>CustomerForgotPassword.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>CustomerForgotPassword.cshtml</orgName>
+		</file>
+		<file>
+			<guid>CustomerOrders.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>CustomerOrders.cshtml</orgName>
+		</file>
+		<file>
+			<guid>CustomerProfile.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>CustomerProfile.cshtml</orgName>
+		</file>
+		<file>
+			<guid>CustomerWishlist.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>CustomerWishlist.cshtml</orgName>
+		</file>
+		<file>
+			<guid>NewestProducts.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>NewestProducts.cshtml</orgName>
+		</file>
+		<file>
+			<guid>RandomCategories.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>RandomCategories.cshtml</orgName>
+		</file>
+		<file>
+			<guid>TopSellingProductsList.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>TopSellingProductsList.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopActionResult.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>uWebshopActionResult.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopBasket.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>uWebshopBasket.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopCategory.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>uWebshopCategory.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopCheckout.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>uWebshopCheckout.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopCheckoutCustomer.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>uWebshopCheckoutCustomer.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopLatestProducts.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>uWebshopLatestProducts.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopMetaDescription.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>uWebshopMetaDescription.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopMiniBasket.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>uWebshopMiniBasket.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopNavigation.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>uWebshopNavigation.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopPaging.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>uWebshopPaging.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopProduct.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>uWebshopProduct.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopRandomProducts.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>uWebshopRandomProducts.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopTopSellingProducts.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>uWebshopTopSellingProducts.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_AddToWishlist.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>_AddToWishlist.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_BasketOrderLines.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>_BasketOrderLines.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_ChangeCurrency.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>_ChangeCurrency.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_CustomerChangePassword.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>_CustomerChangePassword.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_CustomerCreate.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>_CustomerCreate.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_CustomerLogin.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>_CustomerLogin.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_CustomerOrderDetails.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>_CustomerOrderDetails.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_CustomerProfile.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>_CustomerProfile.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_MediumProductDisplay.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>_MediumProductDisplay.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_OrderOrderLines.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>_OrderOrderLines.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_SimpleAddToBasket.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>_SimpleAddToBasket.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_SmallProductDisplay.cshtml</guid>
+			<orgPath>/MacroScripts</orgPath>
+			<orgName>_SmallProductDisplay.cshtml</orgName>
+		</file>
+	</files>
+	<Documents>
+		<DocumentSet importMode="root">
+			<uwbsHomepage id="1153" parentID="-1" level="1" creatorID="0" sortOrder="1" createDate="2013-10-16T20:41:30" updateDate="2013-11-03T21:11:10" nodeName="uWebshop DemoStore" urlName="uwebshop-demostore" path="-1,1153" isDoc="" nodeType="1151" creatorName="admin" writerName="admin" writerID="0" template="1144" nodeTypeAlias="uwbsHomepage">
+				<uwbsStorePicker>1158</uwbsStorePicker>
+				<siteName>uWebshop 2.0 Sandbox</siteName>
+				<siteDescription><![CDATA[An HTML only uWebshop 2.0 blank starter kit!]]></siteDescription>
+				<bodyText>
+					<![CDATA[<p>The uWebshop 2.0 Sandbox gives you a bare-bones website that introduces you to a set of well-defined conventions for building an uWebshop based webshop!</p>
+<p>This Sandbox is very basic in form and provided without any design or javascript, an easy way to get you started with a nice collection of HTML/Razor and XSLT! Of course all the uWebshop functionality is also available to use with Javascript/jQuery/JSON.</p>
+<p>uWebshop 2.0 can be easily integrated with any existing website or starterkit already available for Umbraco. In a few easy steps explained during installation you will have a fully working webshop without having to learn anything new or make big changes to your current site!</p>
+<p>If you see some errors try to publish the uWebshop Node + all children, to update the Examine cache.</p>]]>
+				</bodyText>
+				<uwbsBasket id="1154" parentID="1153" level="2" creatorID="0" sortOrder="0" createDate="2013-10-16T20:41:30" updateDate="2013-10-20T17:32:13" nodeName="Basket" urlName="basket" path="-1,1153,1154" isDoc="" nodeType="1149" creatorName="admin" writerName="admin" writerID="0" template="1141" nodeTypeAlias="uwbsBasket">
+					<umbracoNaviHide>0</umbracoNaviHide>
+					<bodyText><![CDATA[]]></bodyText>
+					<uwbsCustomerCheckout id="1200" parentID="1154" level="3" creatorID="0" sortOrder="1" createDate="2013-10-20T17:26:22" updateDate="2013-10-20T17:33:45" nodeName="Customer Details" urlName="customer-details" path="-1,1153,1154,1200" isDoc="" nodeType="1150" creatorName="admin" writerName="admin" writerID="0" template="1145" nodeTypeAlias="uwbsCheckout">
+						<umbracoNaviHide>0</umbracoNaviHide>
+						<bodyText><![CDATA[]]></bodyText>
+						<uwbsCheckout id="1155" parentID="1200" level="4" creatorID="0" sortOrder="1" createDate="2013-10-16T20:41:30" updateDate="2013-10-20T17:35:45" nodeName="Checkout" urlName="checkout" path="-1,1153,1154,1200,1155" isDoc="" nodeType="1150" creatorName="admin" writerName="admin" writerID="0" template="1146" nodeTypeAlias="uwbsCheckout">
+							<umbracoNaviHide>0</umbracoNaviHide>
+							<bodyText><![CDATA[]]></bodyText>
+							<uwbsTextpage id="1156" parentID="1155" level="5" creatorID="0" sortOrder="2" createDate="2013-10-16T20:41:30" updateDate="2013-10-20T17:27:04" nodeName="Success" urlName="success" path="-1,1153,1154,1200,1155,1156" isDoc="" nodeType="1148" creatorName="admin" writerName="admin" writerID="0" template="1147" nodeTypeAlias="uwbsTextpage">
+								<umbracoNaviHide>1</umbracoNaviHide>
+								<bodyText><![CDATA[<p>Success!</p>]]></bodyText>
+							</uwbsTextpage>
+							<uwbsTextpage id="1157" parentID="1155" level="5" creatorID="0" sortOrder="3" createDate="2013-10-16T20:41:30" updateDate="2013-10-20T17:27:04" nodeName="Failed" urlName="failed" path="-1,1153,1154,1200,1155,1157" isDoc="" nodeType="1148" creatorName="admin" writerName="admin" writerID="0" template="1147" nodeTypeAlias="uwbsTextpage">
+								<umbracoNaviHide>1</umbracoNaviHide>
+								<bodyText><![CDATA[<p>Failed :(</p>]]></bodyText>
+							</uwbsTextpage>
+						</uwbsCheckout>
+					</uwbsCustomerCheckout>
+				</uwbsBasket>
+				<uwbsProfile id="1180" parentID="1153" level="2" creatorID="0" sortOrder="1" createDate="2013-10-18T10:50:39" updateDate="2013-10-18T11:12:15" nodeName="Profile" urlName="profile" path="-1,1153,1180" isDoc="" nodeType="1179" creatorName="admin" writerName="admin" writerID="0" template="1181" nodeTypeAlias="uwbsProfile">
+					<umbracoNaviHide>0</umbracoNaviHide>
+					<bodyText><![CDATA[]]></bodyText>
+					<uwbsProfilePasswordForgotten id="1183" parentID="1180" level="3" creatorID="0" sortOrder="0" createDate="2013-10-18T11:08:16" updateDate="2013-10-18T11:16:50" nodeName="Password Forgotten" urlName="password-forgotten" path="-1,1153,1180,1183" isDoc="" nodeType="1179" creatorName="admin" writerName="admin" writerID="0" template="1182" nodeTypeAlias="uwbsProfile">
+						<umbracoNaviHide>0</umbracoNaviHide>
+						<bodyText><![CDATA[<p>If you forgot your password you can request a new one to be send to the e-mailaddres in your account, using the form below.</p>]]></bodyText>
+					</uwbsProfilePasswordForgotten>
+					<uwbsProfileWishlist id="1195" parentID="1180" level="3" creatorID="0" sortOrder="1" createDate="2013-10-18T13:39:04" updateDate="2013-10-18T14:55:30" nodeName="Wishlists" urlName="wishlists" path="-1,1153,1180,1195" isDoc="" nodeType="1179" creatorName="admin" writerName="admin" writerID="0" template="1198" nodeTypeAlias="uwbsProfile">
+						<umbracoNaviHide>0</umbracoNaviHide>
+						<bodyText><![CDATA[]]></bodyText>
+					</uwbsProfileWishlist>
+					<uwbsProfileOrders id="1196" parentID="1180" level="3" creatorID="0" sortOrder="2" createDate="2013-10-18T13:39:10" updateDate="2013-10-20T16:49:42" nodeName="Orders" urlName="orders" path="-1,1153,1180,1196" isDoc="" nodeType="1179" creatorName="admin" writerName="admin" writerID="0" template="1199" nodeTypeAlias="uwbsProfile">
+						<umbracoNaviHide>0</umbracoNaviHide>
+						<bodyText><![CDATA[]]></bodyText>
+					</uwbsProfileOrders>
+					<uwbsTextpage id="1208" parentID="1180" level="3" creatorID="0" sortOrder="3" createDate="2013-10-20T19:14:35" updateDate="2013-10-20T19:14:43" nodeName="Logout" urlName="logout" path="-1,1153,1180,1208" isDoc="" nodeType="1148" creatorName="admin" writerName="admin" writerID="0" template="1147" nodeTypeAlias="uwbsTextpage">
+						<umbracoNaviHide>0</umbracoNaviHide>
+						<bodyText><![CDATA[<p>You are now logged-out.</p>]]></bodyText>
+					</uwbsTextpage>
+				</uwbsProfile>
+			</uwbsHomepage>
+		</DocumentSet>
+	</Documents>
+	<Templates>
+    <Template>
+      <Name>Basket</Name>
+      <Alias>uwbsBasket</Alias>
+      <Master>uwbsSandboxMaster</Master>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsSandboxMaster.master" AutoEventWireup="true" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cp_content" runat="server">
+
+	
+	<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/CrumblePath.cshtml")
+	</umbraco:Macro>
+	
+	
+	<h2><umbraco:Item ID="Item1" runat="server" field="pageName"/></h2>
+
+	<umbraco:Item ID="Item2" runat="server" field="bodyText" />
+			
+	<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/uWebshopBasket.cshtml")
+	</umbraco:Macro>
+
+</asp:Content>]]></Design>
+    </Template>
+    <Template>
+      <Name>Category</Name>
+      <Alias>uwbsCategory</Alias>
+      <Master>uwbsSandboxMaster</Master>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsSandboxMaster.master" AutoEventWireup="true" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cp_content" runat="server">
+
+	<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/CrumblePath.cshtml")
+		@RenderPage("~/macroScripts/uWebshopCategory.cshtml")
+	</umbraco:Macro>
+	
+	
+</asp:Content>]]></Design>
+    </Template>
+    <Template>
+      <Name>Checkout</Name>
+      <Alias>uwbsCheckout</Alias>
+      <Master>uwbsSandboxMaster</Master>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsSandboxMaster.master" AutoEventWireup="true" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cp_content" runat="server">
+
+	<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/CrumblePath.cshtml")
+	</umbraco:Macro>
+	
+	
+	<h2><umbraco:Item ID="Item1" runat="server" field="pageName"/></h2>
+   
+	<umbraco:Item ID="Item2" runat="server" field="bodyText" />
+	
+	
+	<asp:ContentPlaceHolder Id="CheckoutModule" runat="server"/>
+
+
+</asp:Content>]]></Design>
+    </Template>
+    <Template>
+      <Name>CheckoutCustomer</Name>
+      <Alias>uwbsCheckoutCustomer</Alias>
+      <Master>uwbsCheckout</Master>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsCheckout.master" AutoEventWireup="true" %>
+
+	
+<asp:Content ContentPlaceHolderId="CheckoutModule" runat="server">
+	
+	<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/uWebshopCheckoutCustomer.cshtml")
+	</umbraco:Macro>
+		
+</asp:Content>]]></Design>
+    </Template>
+    <Template>
+      <Name>CheckoutOverview</Name>
+      <Alias>uwbsCheckoutOverview</Alias>
+      <Master>uwbsCheckout</Master>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsCheckout.master" AutoEventWireup="true" %>
+
+
+<asp:Content ContentPlaceHolderId="CheckoutModule" runat="server">
+	<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/uWebshopCheckout.cshtml")
+	</umbraco:Macro>
+</asp:Content>]]></Design>
+    </Template>
+    <Template>
+      <Name>Homepage</Name>
+      <Alias>uwbsHomepage</Alias>
+      <Master>uwbsSandboxMaster</Master>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsSandboxMaster.master" AutoEventWireup="true" %>
+<asp:content contentplaceholderid="cp_content" runat="server">
+  
+<div class="row">
+	<div class="col-md-9">       
+      <div class="jumbotron">
+        <h1>uWebshop StarterStore</h1>
+        <p>Get started with uWebshop quickly and beautifully with this starterkit!</p>
+                
+      </div>
+    </div> <!-- /col-md-9--> 
+	<div class="col-md-3">
+      <div class="well sidebar-nav">
+		  <umbraco:Macro runat="server" language="cshtml">
+			@RenderPage("~/macroScripts/TopSellingProductsList.cshtml")
+			  @RenderPage("~/macroScripts/RandomCategories.cshtml")
+		</umbraco:Macro>       
+      </div>
+    </div><!-- /col-md-3 -->
+</div><!-- /row -->
+
+	 <umbraco:Macro runat="server" language="cshtml">
+			@RenderPage("~/macroScripts/NewestProducts.cshtml")
+		</umbraco:Macro>  
+	
+</asp:content>]]></Design>
+    </Template>
+    <Template>
+      <Name>Product</Name>
+      <Alias>uwbsProduct</Alias>
+      <Master>uwbsSandboxMaster</Master>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsSandboxMaster.master" AutoEventWireup="true" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cp_content" runat="server">
+	
+	<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/CrumblePath.cshtml")
+		@RenderPage("~/macroScripts/uWebshopProduct.cshtml")
+	</umbraco:Macro>
+
+</asp:Content>]]></Design>
+    </Template>
+    <Template>
+      <Name>Profile</Name>
+      <Alias>uwbsProfile</Alias>
+      <Master>uwbsSandboxMaster</Master>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsSandboxMaster.master" AutoEventWireup="true" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cp_content" runat="server">
+	
+	<h2><umbraco:Item ID="Item1" runat="server" field="pageName"/></h2>
+   
+	<umbraco:Item ID="Item2" runat="server" field="bodyText" />
+	
+	
+	<asp:ContentPlaceHolder Id="ProfileModule" runat="server"/>
+
+
+</asp:Content>]]></Design>
+    </Template>
+    <Template>
+      <Name>ProfileLoginCreate</Name>
+      <Alias>uwbsProfileLoginCreate</Alias>
+      <Master>uwbsProfile</Master>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsProfile.master" AutoEventWireup="true" %>
+
+
+<asp:Content ContentPlaceHolderId="ProfileModule" runat="server">
+	<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/CustomerProfile.cshtml")
+	</umbraco:Macro>
+</asp:Content>]]></Design>
+    </Template>
+    <Template>
+      <Name>ProfileOrders</Name>
+      <Alias>uwbsProfileOrders</Alias>
+      <Master>uwbsProfile</Master>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsProfile.master" AutoEventWireup="true" %>
+
+<asp:content ContentPlaceHolderId="ProfileModule" runat="server">
+	<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/CustomerOrders.cshtml")
+	</umbraco:Macro>
+</asp:content>]]></Design>
+    </Template>
+    <Template>
+      <Name>ProfilePasswordForgotten</Name>
+      <Alias>uwbsProfilePasswordForgotten</Alias>
+      <Master>uwbsProfile</Master>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsProfile.master" AutoEventWireup="true" %>
+
+
+<asp:Content ContentPlaceHolderId="ProfileModule" runat="server">
+<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/CustomerForgotPassword.cshtml")
+	</umbraco:Macro>
+</asp:Content>]]></Design>
+    </Template>
+    <Template>
+      <Name>ProfileWishlist</Name>
+      <Alias>uwbsProfileWishlist</Alias>
+      <Master>uwbsProfile</Master>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsProfile.master" AutoEventWireup="true" %>
+
+<asp:content ContentPlaceHolderId="ProfileModule" runat="server">
+	<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/CustomerWishlist.cshtml")
+	</umbraco:Macro>
+</asp:content>]]></Design>
+    </Template>
+    <Template>
+      <Name>Textpage</Name>
+      <Alias>uwbsTextpage</Alias>
+      <Master>uwbsSandboxMaster</Master>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="~/masterpages/uwbsSandboxMaster.master" AutoEventWireup="true" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cp_content" runat="server">
+	
+	<h2><umbraco:Item ID="Item1" runat="server" field="pageName"/></h2>
+   
+	<umbraco:Item ID="Item2" runat="server" field="bodyText" />
+
+</asp:Content>]]></Design>
+    </Template>
+    <Template>
+      <Name>uWebshop Master</Name>
+      <Alias>uwbsSandboxMaster</Alias>
+      <Design>
+			<![CDATA[<%@ Master Language="C#" MasterPageFile="~/umbraco/masterpages/default.master" AutoEventWireup="true" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server">
+
+	<!doctype html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="shortcut icon" href="assets/ico/favicon.png">
+
+		<umbraco:Macro runat="server" language="cshtml">
+			@RenderPage("~/macroScripts/uWebshopMetaDescription.cshtml")
+		</umbraco:Macro>
+		
+	
+
+		<!-- Bootstrap core CSS -->
+		<link href="/css/bootstrap.css" rel="stylesheet">
+		<!-- <link href="/css/bootstrap-theme.css" rel="stylesheet"> -->
+		<!-- Custom styles for this template -->
+		<link href="/css/uWebshopStarterkit.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="/scripts/assets/html5shiv.js"></script>
+			<script src="/scripts/assets/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+			
+		
+		<umbraco:Macro runat="server" language="cshtml">
+			@RenderPage("~/macroScripts/uWebshopNavigation.cshtml")
+		</umbraco:Macro>
+
+		<div class="container">
+			<umbraco:Macro runat="server" language="cshtml">
+			@RenderPage("~/macroScripts/uWebshopActionResult.cshtml")
+		</umbraco:Macro>	
+
+		<asp:ContentPlaceHolder ID="cp_content" runat="server" />
+
+			<hr />
+			<div class="row">
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Change currency</h3>
+						</div>
+						<div class="panel-body">							
+							<umbraco:Macro runat="server" language="cshtml">
+								@RenderPage("~/macroScripts/_ChangeCurrency.cshtml")
+							</umbraco:Macro>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Service</h3>
+						</div>
+						<div class="panel-body">
+							<ul>
+								<li><a href="#">link</a></li>
+								<li><a href="#">link</a></li>
+								<li><a href="#">link</a></li>
+								<li><a href="#">link</a></li>
+								<li><a href="#">link</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Contact</h3>
+						</div>
+						<div class="panel-body">
+							<address>
+								<strong>uWebshop</strong><br>
+								3e Binnenvestgracht 24<br>
+								Leiden, The Netherlands<br>
+								<a href="/contact" title="Contact">contact</a>
+							</address>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<hr />
+		</div>
+		<!-- /container -->
+
+		<div id="footer">
+			<div class="container">
+				<p class="text-muted credit">&copy; uWebshop BV 2013<span class="pull-right">Powered by <a href="http://umbraco.com" title="Umbraco Content Management System">Umbraco</a> &amp; <a href="http://uWebshop.com" title="uWebshop E-commerece">uWebshop</a></span></p>
+			</div>
+		</div>
+		
+		<!-- uWebshop Baskethandler to handle form posts to uWebshop -->
+		<umbraco:Macro Alias="uWebshopBasketHandler" runat="server" />
+		<!-- Bootstrap core JavaScript -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="/scripts/assets/jquery.min.js"></script>
+		<script src="/scripts/assets/bootstrap.min.js"></script>
+		<script src="/scripts/assets/holder.js"></script>
+		<script src="/scripts/uWebshopStarterkit.js"></script>
+		<script src="/scripts/uWebshop/uWebshop.js"></script>
+	</body>
+	</html>
+</asp:Content>]]></Design>
+    </Template>
+  </Templates>
+	<DocumentTypes>
+		<DocumentType>
+			<Info>
+				<Name>Textpage</Name>
+				<Alias>uwbsTextpage</Alias>
+				<Icon>.sprTreeDoc</Icon>
+				<Thumbnail>doc.png</Thumbnail>
+				<Description>This is the standard content page for a starter kit website.</Description>
+				<AllowAtRoot>False</AllowAtRoot>
+				<AllowedTemplates>
+					<Template>uwbsTextpage</Template>
+				</AllowedTemplates>
+				<DefaultTemplate>uwbsTextpage</DefaultTemplate>
+			</Info>
+			<Structure>
+				<DocumentType>uwbsTextpage</DocumentType>
+				<DocumentType>uwbsBasket</DocumentType>
+				<DocumentType>uwbsCheckout</DocumentType>
+				<DocumentType>uwbsProfile</DocumentType>
+			</Structure>
+			<GenericProperties>
+				<GenericProperty>
+					<Name>Hide in navigation</Name>
+					<Alias>umbracoNaviHide</Alias>
+					<Type>38b352c1-e9f8-4fd8-9324-9a2eab06d97a</Type>
+					<Definition>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</Definition>
+					<Tab>
+					</Tab>
+					<Mandatory>False</Mandatory>
+					<Validation>
+					</Validation>
+					<Description><![CDATA[]]></Description>
+				</GenericProperty>
+				<GenericProperty>
+					<Name>Body Text</Name>
+					<Alias>bodyText</Alias>
+					<Type>5e9b75ae-face-41c8-b47e-5f4b0fd82f83</Type>
+					<Definition>ca90c950-0aff-4e72-b976-a30b1ac57dad</Definition>
+					<Tab>Content</Tab>
+					<Mandatory>False</Mandatory>
+					<Validation>
+					</Validation>
+					<Description><![CDATA[]]></Description>
+				</GenericProperty>
+			</GenericProperties>
+			<Tabs>
+				<Tab>
+					<Id>46</Id>
+					<Caption>Content</Caption>
+				</Tab>
+			</Tabs>
+		</DocumentType>
+		<DocumentType>
+			<Info>
+				<Name>Basket</Name>
+				<Alias>uwbsBasket</Alias>
+				<Icon>clipboard-invoice.png</Icon>
+				<Thumbnail>folder.png</Thumbnail>
+				<Description>
+				</Description>
+				<AllowAtRoot>False</AllowAtRoot>
+				<Master>uwbsTextpage</Master>
+				<AllowedTemplates>
+					<Template>uwbsBasket</Template>
+				</AllowedTemplates>
+				<DefaultTemplate>uwbsBasket</DefaultTemplate>
+			</Info>
+			<Structure>
+				<DocumentType>uwbsTextpage</DocumentType>
+				<DocumentType>uwbsCustomerCheckout</DocumentType>
+			</Structure>
+			<GenericProperties />
+			<Tabs />
+		</DocumentType>
+		<DocumentType>
+			<Info>
+				<Name>Checkout</Name>
+				<Alias>uwbsCheckout</Alias>
+				<Icon>wallet.png</Icon>
+				<Thumbnail>folder.png</Thumbnail>
+				<Description>
+				</Description>
+				<AllowAtRoot>False</AllowAtRoot>
+				<Master>uwbsTextpage</Master>
+				<AllowedTemplates>
+					<Template>uwbsCheckoutOverview</Template>
+				</AllowedTemplates>
+				<DefaultTemplate>CheckoutOverview</DefaultTemplate>
+			</Info>
+			<Structure>
+				<DocumentType>uwbsTextpage</DocumentType>
+			</Structure>
+			<GenericProperties />
+			<Tabs />
+		</DocumentType>
+		<DocumentType>
+			<Info>
+				<Name>Customer Checkout</Name>
+				<Alias>uwbsCustomerCheckout</Alias>
+				<Icon>wallet.png</Icon>
+				<Thumbnail>folder.png</Thumbnail>
+				<Description>
+				</Description>
+				<AllowAtRoot>False</AllowAtRoot>
+				<Master>uwbsTextpage</Master>
+				<AllowedTemplates>
+					<Template>uwbsCheckoutCustomer</Template>
+				</AllowedTemplates>
+				<DefaultTemplate>CheckoutOverview</DefaultTemplate>
+			</Info>
+			<Structure>
+				<DocumentType>uwbsTextpage</DocumentType>
+				<DocumentType>uwbsCheckout</DocumentType>
+			</Structure>
+			<GenericProperties />
+			<Tabs />
+		</DocumentType>
+		<DocumentType>
+			<Info>
+				<Name>Homepage</Name>
+				<Alias>uwbsHomepage</Alias>
+				<Icon>bank.png</Icon>
+				<Thumbnail>folder.png</Thumbnail>
+				<Description>The homepage of a starter kit website.</Description>
+				<AllowAtRoot>False</AllowAtRoot>
+				<AllowedTemplates>
+					<Template>uwbsHomepage</Template>
+				</AllowedTemplates>
+				<DefaultTemplate>uwbsHomepage</DefaultTemplate>
+			</Info>
+			<Structure>
+				<DocumentType>uwbsTextpage</DocumentType>
+				<DocumentType>uwbsBasket</DocumentType>
+				<DocumentType>uwbsCheckout</DocumentType>
+				<DocumentType>uwbsProfile</DocumentType>
+			</Structure>
+			<GenericProperties>
+				<GenericProperty>
+					<Name>#StorePicker</Name>
+					<Alias>uwbsStorePicker</Alias>
+					<Type>5fa345e3-9352-45d6-adaa-2da6cdc9aca3</Type>
+					<Definition>1e8cdc0b-436e-46f5-bfec-57be45745771</Definition>
+					<Tab>
+					</Tab>
+					<Mandatory>False</Mandatory>
+					<Validation>
+					</Validation>
+					<Description><![CDATA[]]></Description>
+				</GenericProperty>
+				<GenericProperty>
+					<Name>Site Name</Name>
+					<Alias>siteName</Alias>
+					<Type>ec15c1e5-9d90-422a-aa52-4f7622c63bea</Type>
+					<Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+					<Tab>Site</Tab>
+					<Mandatory>False</Mandatory>
+					<Validation>
+					</Validation>
+					<Description><![CDATA[]]></Description>
+				</GenericProperty>
+				<GenericProperty>
+					<Name>Site Description</Name>
+					<Alias>siteDescription</Alias>
+					<Type>67db8357-ef57-493e-91ac-936d305e0f2a</Type>
+					<Definition>c6bac0dd-4ab9-45b1-8e30-e4b619ee5da3</Definition>
+					<Tab>Site</Tab>
+					<Mandatory>False</Mandatory>
+					<Validation>
+					</Validation>
+					<Description><![CDATA[]]></Description>
+				</GenericProperty>
+				<GenericProperty>
+					<Name>Body text</Name>
+					<Alias>bodyText</Alias>
+					<Type>5e9b75ae-face-41c8-b47e-5f4b0fd82f83</Type>
+					<Definition>ca90c950-0aff-4e72-b976-a30b1ac57dad</Definition>
+					<Tab>Content</Tab>
+					<Mandatory>False</Mandatory>
+					<Validation>
+					</Validation>
+					<Description><![CDATA[]]></Description>
+				</GenericProperty>
+			</GenericProperties>
+			<Tabs>
+				<Tab>
+					<Id>47</Id>
+					<Caption>Site</Caption>
+				</Tab>
+				<Tab>
+					<Id>48</Id>
+					<Caption>Content</Caption>
+				</Tab>
+			</Tabs>
+		</DocumentType>
+		<DocumentType>
+			<Info>
+				<Name>Profile</Name>
+				<Alias>uwbsProfile</Alias>
+				<Icon>.sprTreeUser</Icon>
+				<Thumbnail>folder.png</Thumbnail>
+				<Description>
+				</Description>
+				<AllowAtRoot>False</AllowAtRoot>
+				<Master>uwbsTextpage</Master>
+				<AllowedTemplates>
+					<Template>uwbsProfileLoginCreate</Template>
+				</AllowedTemplates>
+				<DefaultTemplate>uwbsProfileLoginCreate</DefaultTemplate>
+			</Info>
+			<Structure>
+				<DocumentType>uwbsTextpage</DocumentType>
+				<DocumentType>uwbsProfile</DocumentType>
+				<DocumentType>PasswordForgotten</DocumentType>
+				<DocumentType>uwbsProfileWishlist</DocumentType>
+				<DocumentType>uwbsProfileOrders</DocumentType>
+			</Structure>
+			<GenericProperties />
+			<Tabs />
+		</DocumentType>
+		<DocumentType>
+			<Info>
+				<Name>Profile PasswordForgotten</Name>
+				<Alias>uwbsProfilePasswordForgotten</Alias>
+				<Icon>.sprTreeUser</Icon>
+				<Thumbnail>folder.png</Thumbnail>
+				<Description>
+				</Description>
+				<AllowAtRoot>False</AllowAtRoot>
+				<Master>uwbsTextpage</Master>
+				<AllowedTemplates>
+					<Template>uwbsProfilePasswordForgotten</Template>
+				</AllowedTemplates>
+				<DefaultTemplate>ProfilePasswordForgotten</DefaultTemplate>
+			</Info>
+			<Structure>
+				<DocumentType>uwbsTextpage</DocumentType>
+			</Structure>
+			<GenericProperties />
+			<Tabs />
+		</DocumentType>
+		<DocumentType>
+			<Info>
+				<Name>Profile Wishlist</Name>
+				<Alias>uwbsProfileWishlist</Alias>
+				<Icon>.sprTreeUser</Icon>
+				<Thumbnail>folder.png</Thumbnail>
+				<Description>
+				</Description>
+				<AllowAtRoot>False</AllowAtRoot>
+				<Master>uwbsTextpage</Master>
+				<AllowedTemplates>
+					<Template>uwbsProfileWishlist</Template>
+				</AllowedTemplates>
+				<DefaultTemplate>uwbsProfileWishlist</DefaultTemplate>
+			</Info>
+			<Structure>
+				<DocumentType>uwbsTextpage</DocumentType>
+			</Structure>
+			<GenericProperties />
+			<Tabs />
+		</DocumentType>
+		<DocumentType>
+			<Info>
+				<Name>Profile Orders</Name>
+				<Alias>uwbsProfileOrders</Alias>
+				<Icon>.sprTreeUser</Icon>
+				<Thumbnail>folder.png</Thumbnail>
+				<Description>
+				</Description>
+				<AllowAtRoot>False</AllowAtRoot>
+				<Master>uwbsTextpage</Master>
+				<AllowedTemplates>
+					<Template>uwbsProfileOrders</Template>
+				</AllowedTemplates>
+				<DefaultTemplate>uwbsProfileOrders</DefaultTemplate>
+			</Info>
+			<Structure>
+				<DocumentType>uwbsTextpage</DocumentType>
+			</Structure>
+			<GenericProperties />
+			<Tabs />
+		</DocumentType>
+	</DocumentTypes>
+	<Macros/>
+	<DictionaryItems />
+	<Languages />
+	<DataTypes />
+	<control>/App_Plugins/uWebshop/installers/uWebshopDemoStarterkitInstaller.ascx</control>
+</umbPackage>

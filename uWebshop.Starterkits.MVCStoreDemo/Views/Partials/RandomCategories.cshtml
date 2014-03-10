@@ -1,0 +1,26 @@
+﻿@*
+uWebshop Razor Example: Random Categories
+=================================
+This snippet takes random 3 products from the catalog
+*@
+
+@using uWebshop.API
+
+@{
+	var random = new Random();
+
+	var randomCategories = from item in Catalog.GetAllCategories() orderby random.Next() select item;
+
+
+	if (randomCategories.Any())
+	{
+		<ul class="nav">
+			<li><strong>Random Categories</strong></li>
+			@foreach (var category in randomCategories.Where(x => x.Products.Any()).Take(5))
+			{
+				<li><a href="@category.Url" title="@category.Title"><span class="badge pull-right">@category.Products.Count()</span> @category.Title</a> </li>
+			}
+		</ul>
+	}
+	
+}

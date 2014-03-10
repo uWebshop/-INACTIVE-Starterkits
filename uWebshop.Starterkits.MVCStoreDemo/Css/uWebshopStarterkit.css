@@ -1,0 +1,86 @@
+﻿@charset "UTF-8";
+/* CSS Document */
+
+#alertpopup {
+	position: fixed;
+	top: 2%;
+	left: 25%;
+	z-index: 2000;
+	width: 50%;
+}
+
+.thumbnail {
+	margin-bottom: 6%; 
+}
+	
+.form-control.input-sm {
+	padding: 8px;
+}
+
+.orderline {
+	padding: 10px 0;
+}
+
+.navbar-cart {
+	margin-left: 0;
+}
+
+.orderline-body {
+	border-top: 1px solid #dddddd;
+}
+
+.orderline-header {
+	border-bottom: 1px solid #dddddd;
+}
+
+.btn-group > form ,
+.btn-group-vertical > form {
+  position: relative;
+  float: left;
+}
+
+.btn-group form + .btn {
+  margin-left: -2px;
+}
+
+.navbar-default {
+	white-space: nowrap;
+}
+
+.navbar-default .navbar-form {
+	padding: 0;
+}
+
+.nav.navbar-nav.navbar-right.list-inline {
+	text-align: center;
+}
+
+.navbar-default .navbar-form.navbar-left {
+	border: none;
+}
+
+@media (max-width: 767px) {
+
+#alertpopup {
+	position: fixed;
+	top: 2%;
+	left: 10%;
+	z-index: 2000;
+	width: 80%;
+}
+
+
+	.text-left-xs {
+		text-align: left;
+	}
+
+	.text-center-xs {
+		text-align: center;
+	}
+
+	.text-right-xs {
+		text-align: right;
+	}
+}
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

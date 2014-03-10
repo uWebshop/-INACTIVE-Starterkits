@@ -1,0 +1,95 @@
+@using uWebshop.API
+@{
+
+	var member = Membership.GetUser();
+
+	if (member != null)
+	{
+		
+		var wishlists = Customers.GetWishlists(member.UserName).ToList();
+
+		if (!wishlists.Any())
+		{
+			<p>You don't have create a wishlist yet, you can create one by adding a product.</p>
+		}
+		
+		<div class="row">
+			<div class="col-md-4 col-md-offset-8">
+				@using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "handleform"})) {
+					<input type="hidden" name="createwishlist" value="true"/>
+					<label for="wishlist">Create new wishlist</label>
+					<div class="input-group">
+						<input name="wishlist" class="form-control" type="text" placeholder="Wishlist name"/>
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-primary">Create new wishlist</button>
+						</span>
+					</div><!-- /input-group -->
+				}
+			</div>
+		</div>
+	<hr/>
+		<div class="row">
+			<div class="col-md-12">
+				@foreach (var wishlist in wishlists)
+				{
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="row">
+									<div class="col-md-6">
+										@using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "handleform"})) {
+											<input type="hidden" name="renamewishlist" value="true"/>
+											<input type="hidden" name="wishlist" value="@wishlist.Name"/>
+											<label for="newwishlistname">Wishlist</label>
+											<div class="input-group">
+												<input name="newwishlistname" class="form-control" type="text" value="@wishlist.Name"/>
+												<span class="input-group-btn">
+													<button type="submit" class="btn btn-success">Rename</button>
+												</span>
+											</div><!-- /input-group -->
+											}
+									</div>
+									<div class="col-md-2 col-md-offset-4 text-right">
+										@using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "handleform"})) {
+											<input type="hidden" name="removewishlist" value="true"/>
+											<input type="hidden" name="wishlist" value="@wishlist.Name"/>
+											<button type="submit" class="btn btn-danger" value="Remove wishlist"><span class="glyphicon glyphicon-trash"></span> Remove</button>
+										}
+									</div>
+								</div>
+						</div>
+						<div class="panel-body">
+								
+								@if (wishlist.OrderLines.Any())
+								{
+									@RenderPage("~/Views/Partials/_BasketOrderLines.cshtml", wishlist.OrderLines, wishlist.Name)
+								}
+								else
+								{
+		   
+									<h5>No items added to this wishlist yet.</h5>
+			
+								}
+							</div>
+							<div class="panel-footer">
+								<div class="row">
+									<div class="col-md-2 col-md-offset-10 text-right">
+										@if (wishlist.OrderLines.Any())
+										{
+											using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "handleform", action="/basket"})) {
+										
+												<input type="hidden" name="wishlisttobasket" value="true"/>
+												<input type="hidden" name="wishlist" value="@wishlist.Name"/>
+												<button type="submit" class="btn btn-lg btn-warning" value="Add wishlist to basket"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</button>
+													}
+										}
+									</div>
+								</div>
+							</div>
+						</div>
+				}
+			</div>
+		</div>
+
+
+	}
+}

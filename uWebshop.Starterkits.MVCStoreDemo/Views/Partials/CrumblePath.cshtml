@@ -1,0 +1,51 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using uWebshop.API
+@using umbraco.MacroEngines
+
+@{
+	<ol class="breadcrumb">		
+			@{
+				var currentProduct = Catalog.GetProduct();				
+				var currentCategory = Catalog.GetCategory();
+				
+				if(currentCategory != null) {
+					<li><a href="/" title="Home">Home</a></li>					
+						
+					foreach (var item in new DynamicNode(currentCategory.Id).Path.Split(','))
+					{
+						var node = new DynamicNode(item);
+			
+						if (node.NodeTypeAlias.StartsWith("uwbsCategory") && node.NodeTypeAlias != "uwbsCategoryRepository")
+						{
+							var category = Catalog.GetCategory(node.Id);
+			
+							if (category.Id != currentCategory.Id || currentProduct != null)
+							{			
+								<li><a href="@category.Url" title="@category.Title">@category.Title</a></li>
+							}
+							else
+							{
+								<li>@category.Title</li>
+							}
+			
+						}
+					}										
+				}
+				
+				if (currentProduct != null)
+				{				
+					<li>@currentProduct.Title</li>
+				}
+				
+				if (currentCategory == null && currentProduct == null) {
+					foreach(var node in CurrentPage.Ancestors().Where("Visible"))
+					{
+						if(node.Level != 1) {
+							<li><a href="@node.Url">@node.Name</a></li>
+						}
+					}
+					<li>@CurrentPage.Name</li>
+				}
+			}
+	</ol>
+}

@@ -1,0 +1,78 @@
+﻿@using System.Linq
+@using System.Web.Security
+@using uWebshop.API
+
+@{
+	IProduct product = PageData[0];
+
+	if (product != null)
+	{
+		@* If member is logged in *@
+		var member = Membership.GetUser();
+
+		if (member != null)
+		{
+			var wishlistsForCustomer = Customers.GetWishlists(member.UserName).ToList();
+
+			if (wishlistsForCustomer.Count() > 1)
+			{
+				<div class="btn-group pull-right">
+					@using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "handleform"}))
+					{
+						<input type = "hidden" name = "productId" value = "@product.Id" />
+						<input type = "hidden" name = "action" value = "add" />
+						<input type = "hidden" name = "quantity" value = "1" />
+						<input type="hidden" name="wishlist" value="@wishlistsForCustomer.First().Name" />
+						<button type="submit" class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-star"></span> Wishlist</button>
+					}
+					<button type="button" class="btn btn-xs btn-warning dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						@foreach (var wishlist in wishlistsForCustomer)
+						{
+							<li>
+								@using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "handleform"}))
+								{
+									<input type = "hidden" name = "productId" value = "@product.Id" />
+									<input type = "hidden" name = "action" value = "add" />
+									<input type = "hidden" name = "quantity" value = "1" />
+									<input type="hidden" name="wishlist" value="@wishlist.Name" />
+									<button type="submit" class="btn btn-xs btn-link">@wishlist.Name</button>
+								}
+							</li>
+						}
+					</ul>
+				</div>
+			}
+			else
+			{
+				const string wishListName = "My wishlist";
+
+				using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "handleform"}))
+				{
+					<input type = "hidden" name = "productId" value = "@product.Id" />
+					<input type = "hidden" name = "action" value = "add" />
+					<input type = "hidden" name = "quantity" value = "1" />
+					<input type="hidden" name="wishlist" value="@wishListName" />
+					<button type="submit" class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-star"></span> Wishlist</button>
+				}
+			}
+		}
+		else
+		{
+			const string wishListName = "Wishlist";
+
+			using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "handleform"}))
+			{
+				<input type = "hidden" name = "productId" value = "@product.Id" />
+				<input type = "hidden" name = "action" value = "add" />
+				<input type = "hidden" name = "quantity" value = "1" />
+				<input type="hidden" name="wishlist" value="@wishListName" />
+				<button type="submit" class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-star"></span> Wishlist</button>
+			}
+
+		}
+
+	}
+}

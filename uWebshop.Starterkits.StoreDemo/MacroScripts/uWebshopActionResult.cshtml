@@ -1,0 +1,45 @@
+﻿@using uWebshop.API
+@using uWebshop.Common
+
+	@{
+		<div id="alertplaceholder">
+			<noscript>
+				@RenderMessage(Constants.BasketActionResult)
+				@RenderMessage(Constants.WishlistActionResult)
+				@RenderMessage(Constants.WishlistRemoveActionResult)
+				@RenderMessage(Constants.WishlistRenameActionResult)
+				@RenderMessage(Constants.WishlistToBasketActionResult)
+			</noscript>
+			@RenderMessage(Constants.CreateMemberSessionKey)
+			@RenderMessage(Constants.SignInMemberSessionKey)
+			@RenderMessage(Constants.CouponCodeSessionKey)
+			@RenderMessage(Constants.UpdateMemberSessionKey)
+			@RenderMessage(Constants.UpdateMemberSessionKeyAddition)
+			@RenderMessage(Constants.ChangePasswordSessionKey)
+		</div>
+	}
+
+
+@helper RenderMessage(string feedbackKey)
+{
+	var sessionKey = Basket.GetFeedbackMessage(feedbackKey);
+
+	if (sessionKey == null)
+	{
+		return;
+	}
+	
+	var alertValue = "danger";
+	var alertMessage = feedbackKey;
+	if (sessionKey == "Success")
+	{
+		alertValue = "success";
+		alertMessage = feedbackKey;
+	}
+
+	<div class="alert alert-@alertValue alert-dismissable">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<strong>@alertMessage:</strong> @sessionKey
+	</div>
+
+}

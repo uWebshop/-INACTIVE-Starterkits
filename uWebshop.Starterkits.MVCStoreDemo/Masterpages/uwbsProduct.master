@@ -1,0 +1,9 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/uWebshopMaster.master" AutoEventWireup="true" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cp_content" runat="server">
+	
+	<umbraco:Macro runat="server" language="cshtml">
+		@RenderPage("~/macroScripts/CrumblePath.cshtml")
+		@RenderPage("~/macroScripts/uWebshopProduct.cshtml")
+	</umbraco:Macro>
+
+</asp:Content>

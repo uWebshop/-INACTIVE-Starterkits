@@ -1,0 +1,69 @@
+﻿@using uWebshop.API
+@using uWebshop.Domain.Interfaces
+
+@{
+	IOrder order = PageData[0];
+
+	if(order != null)
+	{
+		
+			<div class="row">
+				<div class="col-md-6">
+				
+					<h3>Billing Address</h3>
+					<dl class="dl-horizontal">
+						<dt>Email</dt>
+						<dd>@order.Customer.Email</dd>
+						<dt>FirstName</dt>
+						<dd>@order.Customer.FirstName</dd>
+						<dt>LastName</dt>
+						<dd>@order.Customer.LastName</dd>
+						<dt>Street</dt>
+						<dd>@order.Customer.Street @order.Customer.StreetNumber</dd>
+						<dt>City</dt>
+						<dd>@order.Customer.City</dd>
+						<dt>Country</dt>
+						<dd>@Store.GetCountryNameFromCountryCode(order.Customer.Country)</dd>
+					</dl>
+				
+				</div>
+				@if (!order.Customer.CustomerIsShipping)
+				{
+					<div class="col-md-6">
+				
+						<h3>Delivery Address</h3>
+						<dl class="dl-horizontal">
+							<dt>FirstName</dt>
+							<dd>@order.Customer.Shipping.FirstName</dd>
+							<dt>LastName</dt>
+							<dd>@order.Customer.Shipping.LastName</dd>
+							<dt>Street</dt>
+							<dd>@order.Customer.Shipping.Street @order.Customer.Shipping.StreetNumber</dd>
+							<dt>City</dt>
+							<dd>@order.Customer.Shipping.City</dd>
+							<dt>Country</dt>
+							<dd>@Store.GetCountryNameFromCountryCode(order.Customer.Shipping.Country)</dd>
+						</dl>
+			
+					</div>
+				}
+			</div>
+	
+			<div class="row">
+				<div class="col-md-6">
+					<dl class="dl-horizontal">
+						<dt>Comment</dt>
+						<dd>
+							@{
+								var value = order.OrderFields.GetValue<string>("extraMessage");
+
+								@value
+							}
+						</dd>
+					</dl>
+				</div>
+			</div>
+		
+		  
+	}
+}

@@ -1,0 +1,22 @@
+﻿@using uWebshop.API
+
+@using(Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "navbar-form navbar-left text-center"}))
+{
+
+	<div class="btn-group">
+		@foreach (var currency in Store.GetStore().Currencies)
+		{
+			var disabled = "";
+			var btnclass = "btn-default";
+			if (Store.GetCurrentLocalization().CurrencyCode == currency.ISOCurrencySymbol)
+			{
+				disabled = "disabled=\"disabled\"";
+				btnclass = "btn-warning";
+
+			}
+
+			<button @Html.Raw(disabled) data-toggle="tooltip" data-placement="bottom" data-title="Change currency to @currency.ISOCurrencySymbol" type="submit" name="changecurrency" value="@currency.ISOCurrencySymbol" class="btn btn-sm @btnclass">@Store.GetCurrencySymbol(currency.ISOCurrencySymbol)</button>
+		}
+								
+	</div>
+}

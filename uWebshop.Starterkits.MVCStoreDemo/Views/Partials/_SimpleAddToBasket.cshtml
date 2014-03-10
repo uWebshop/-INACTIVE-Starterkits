@@ -1,0 +1,67 @@
+﻿@using System.Globalization
+@using uWebshop.API
+@using uWebshop.Domain.Interfaces
+
+@{
+	IProduct product = PageData[0];
+	var inputsize = "";
+	var btnsize = "";
+
+	if(PageData[1] != null) {
+		inputsize = "input-" + PageData[1];
+		btnsize = "btn-" + PageData[1];
+		
+	}
+	
+	if(product != null && product.Orderable) {
+		
+		var maxValue = product.Stock;
+		if (product.BackorderStatus || maxValue == 0 && product.Orderable)
+		{
+			maxValue = 99;
+		}
+		
+		using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "handleform", action="/basket"})) {
+		
+			<div class="input-group">
+				<input type="hidden" name="productId" value="@product.Id"/>
+				<input type="hidden" name="action" value="add" />
+				@if(PageData[1] == null) {
+					<input type="number" class="form-control @inputsize" name="quantity" id="quantity" min="1" max="@maxValue" value="1"/>   
+				}
+				else {
+					<input type="hidden" name="quantity" id="quantity" value="1"/>
+				}
+			
+			
+				@foreach (var productVarGroup in product.VariantGroups)
+				{
+					<input type="hidden" name="@("variant" + productVarGroup.Title)" class="form-control" value="@productVarGroup.Variants.FirstOrDefault().Id" />
+				}
+				
+				@{
+					var price = product.Price.WithVat.ValueInCents;
+
+					foreach (var productVarGroup in product.VariantGroups)
+					{
+						price += productVarGroup.Variants.FirstOrDefault().Price.WithVat.ValueInCents;
+					}
+
+					var basicPrice = Store.CreateBasicPrice(price);
+					
+					if (PageData[1] == null)
+					 {
+						 <span class="input-group-btn">
+							 <input data-toggle="tooltip" title="@basicPrice.ToCurrencyString() / item" class="btn btn-success @btnsize" type="submit" value="Order"/>
+						 </span>
+					 }
+					 else
+					 {
+						 <input data-toggle="tooltip" title="@basicPrice.ToCurrencyString() / item" class="btn btn-success @btnsize" type="submit" value="Order"/>
+					 }
+				}
+			</div>
+		}
+		
+	}
+}

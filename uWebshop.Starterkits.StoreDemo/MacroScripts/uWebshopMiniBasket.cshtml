@@ -1,0 +1,27 @@
+﻿@*uWebshop Razor Example MiniBasket
+=================================
+This snippet gives you a mini basket example to show the items in the basket and the grandtotal
+*@
+
+@using uWebshop.API
+
+@{
+
+	var basket = Basket.GetBasket();
+
+	if (basket != null && basket.GrandTotal.Value > 0)
+	{	
+		<a href="/basket">
+			<span class="glyphicon glyphicon-shopping-cart"></span>
+			<span class="grandtotalvalue">@basket.GrandTotal.ToCurrencyString()</span>
+			<span class="badge ordertotalquantity">@basket.Quantity</span>
+		</a>
+	}
+	else
+	{
+		<a id="minibasketplaceholder">
+			<span class="glyphicon glyphicon-shopping-cart"></span> @Html.Raw("Empty")
+		</a>
+	}
+
+}

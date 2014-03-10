@@ -1,0 +1,16 @@
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\bin\Release\uWebshop.Starterkits.StoreDemo.dll
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\bin\Release\uWebshop.Starterkits.StoreDemo.pdb
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\bin\Release\uWebshop.Domain.dll
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\bin\Release\uWebshop.Common.dll
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\bin\Release\uWebshop.DataAccess.dll
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\bin\Release\umbraco.DataLayer.dll
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\bin\Release\businesslogic.dll
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\bin\Release\Umbraco.Core.dll
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\bin\Release\uWebshop.Domain.pdb
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\bin\Release\uWebshop.Common.pdb
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\bin\Release\uWebshop.DataAccess.pdb
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\bin\Release\umbraco.DataLayer.xml
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\bin\Release\businesslogic.xml
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\obj\Release\uWebshop.Starterkits.StoreDemo.csprojResolveAssemblyReference.cache
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\obj\Release\uWebshop.Starterkits.StoreDemo.dll
+C:\projects\uwebshop2git\Starterkits\uWebshop.Starterkits.StoreDemo\obj\Release\uWebshop.Starterkits.StoreDemo.pdb

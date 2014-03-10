@@ -1,0 +1,74 @@
+﻿@*uWebshop Basket
+=================================
+This snippet gives you a deafult basket example
+uWebshop uses a default html <form> to update the basket. Keep in mind that if you add this code within a <form runat="server"> block that .net will remove the <form> tags from this code and basketupdates won't work!
+*@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using uWebshop.API
+
+@{
+	var basket = Basket.GetBasket();
+
+	if (basket != null && basket.OrderLines.Any())
+	{
+		<div class="panel panel-default" id="uwebshopbasket">
+			<div class="panel-body">				
+				@RenderPage("~/Views/Partials/_BasketOrderLines.cshtml", basket.OrderLines)
+			</div>
+			<div class="panel-footer">
+				<div class="row orderline orderline-footer">
+					<div class="col-sm-4">
+						<form name="couponform" method="post" role="form">
+							<div class="form-group">
+								<label for="couponcode">Couponcode</label>
+								<input type="text" class="form-control" name="couponcode" id="couponCode" placeholder="Enter Couponcode"/>
+							</div>
+		
+							<input type="submit" class="btn btn-info" value="Add Coupon"/>
+						</form>
+						<div class="visible-xs">
+							<hr/>
+						</div>
+					</div>
+					<div class="col-sm-6 col-sm-offset-2">
+						<ul class="list-group">
+							@if (basket.OrderAmount.Discount.WithVat.Value > 0)
+							{
+								<li class="list-group-item">
+									<span class="badge">- <span class="discounttotalvalue">@basket.OrderAmount.Discount.WithVat.ToCurrencyString()</span></span>
+									Order discount With Vat
+								</li>
+							}
+							<li class="list-group-item">
+								<span class="badge subtotalvalue">@basket.SubTotal.ToCurrencyString()</span>
+								Subtotal
+							</li>
+							@if (basket.OrderAmount.Vat.Value > 0)
+							{
+								<li class="list-group-item">
+									<span class="badge vattotalvalue">@basket.OrderAmount.Vat.ToCurrencyString()</span>
+									TotalVat
+								</li>
+							}
+							<li class="list-group-item">
+								<span class="pull-left">Grandtotal</span>
+								<h3 class="text-right grandtotalvalue">@basket.GrandTotal.ToCurrencyString()</h3>
+							</li>
+						</ul>
+						@if (CurrentPage.Children.Any())
+						{
+							<h2 class='text-right text-center-xs'><a class="btn btn-lg btn-success" href="@CurrentPage.Children[0].Url">Continue to @CurrentPage.Children[0].Name</a></h2>
+						}
+				
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		if (basket == null || !basket.OrderLines.Any())
+		{
+			<h3>There are no items in your basket</h3>
+		}
+	}
+}

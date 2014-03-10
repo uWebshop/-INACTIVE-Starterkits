@@ -1,0 +1,25 @@
+﻿@*
+uWebshop Razor Example: Top Selling Products
+=================================
+This snippet lists the last 5 products based on their ordered count
+*@
+
+@using uWebshop.RazorExtensions
+@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@{
+	var topSellingProducts = Catalog.AllProducts().OrderByDescending(x => x.OrderCount).Take(5);
+
+	if (topSellingProducts.Any())
+	{
+		<hr/>
+		<h3>Top selling Products</h3>
+		<p>This example lists the top 5 products by ordercount in the uWebshop catalog.</p>
+		<ul>
+			@foreach (var product in topSellingProducts)
+			{
+				<li><a href="@product.NiceUrl()" title="@product.Title">@product.Title</a> (@product.OrderCount)</li>
+			}
+		</ul>
+	}
+}

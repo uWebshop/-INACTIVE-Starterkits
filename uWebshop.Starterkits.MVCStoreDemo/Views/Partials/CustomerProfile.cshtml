@@ -1,0 +1,28 @@
+@using uWebshop.API
+
+@{
+	var member = Membership.GetUser();
+
+	if (member == null)
+	{
+		<div class="row">
+			<div class="col-md-6">
+				@RenderPage("~/Views/Partials/_CustomerCreate.cshtml")
+			</div>
+			<div class="col-md-6">			
+				@RenderPage("~/Views/Partials/_CustomerLogin.cshtml")
+			</div>
+		</div>
+	}
+	else
+	{
+		<div class="row">
+			<div class="col-md-6">
+				@RenderPage("~/Views/Partials/_CustomerProfile.cshtml")
+			</div>
+			<div class="col-md-6">			
+			@RenderPage("~/Views/Partials/_CustomerChangePassword.cshtml")
+			</div>
+		</div>
+	}
+}

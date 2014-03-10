@@ -1,0 +1,129 @@
+﻿@*
+uWebshop Navigation
+=================================
+This snippet lists all the categories and products in the uWebshop Catalog
+*@
+
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using uWebshop.API
+
+@{
+	var basket = Basket.GetBasket();
+	
+	<div class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				<a class="navbar-brand" href="/">uWebshop</a> </div>
+			<div class="navbar-collapse collapse navbar-left">
+				<ul class="nav navbar-nav">       
+					@foreach (var category in Catalog.GetAllRootCategories())
+					{
+
+						var active = "";
+
+						var currentCategory = Catalog.GetCategory();
+
+						if (currentCategory != null && (currentCategory.Id == category.Id))
+						{
+							active = "class=\"active\"";
+						}
+
+						<li @Html.Raw(active)><a href="@category.Url">@category.Title</a></li>
+					}
+				
+					@RenderContentNav()	
+					
+					
+					<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">uWebshop <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="http://uWebshop.com/features">Features</a></li>
+							<li><a href="http://documentation.uWebshop.com">Documentation</a></li>
+							<li><a href="http://support.uWebshop.com">Support</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">Purchase</li>
+							<li><a href="http://uWebshop.com/purchase">Licences</a></li>
+							<li><a href="http://uWebshop.com/certification">Certification</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">Social</li>
+							<li><a href="http://twitter.com/uWebshop">Twitter</a></li>
+							<li><a href="http://facebook.com/uWebshop">Facebook</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="navbar-right">
+				
+					<ul class="nav navbar-nav navbar-right list-inline">
+						<li class="hidden-xs">
+							@RenderPage("~/Views/Partials/_ChangeCurrency.cshtml")
+						</li>
+						<li class="clearfix visible-xs"></li>
+						<li class="text-center">
+								
+							@{
+								var membershipUser = Membership.GetUser();
+								if (membershipUser != null)
+								{
+									<div class="btn-group">
+										<button type="button" class="btn btn-sm btn-info navbar-btn dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> @membershipUser.UserName <span class="caret"></span></button>
+										<ul class="dropdown-menu text-left" role="menu">				
+											<li><a href="/Profile">Profile</a></li>						
+											<li><a href="/Profile/Wishlists">Wishlists</a></li>
+											<li><a href="/Profile/Orders">Orders</a></li>
+											<li class="divider"></li>
+											<li class="text-right">
+												@using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "form-horizontal", action="/Profile/Logout"}))
+												{
+													<input type="hidden" name="accountsignout" value="true"/>
+													<input type="submit" class="btn btn-link" value="Logout"/>
+												}
+											</li>
+										</ul>
+									</div>
+								}
+								else
+								{
+									<a href="/profile"><span class="glyphicon glyphicon-user"></span> Profile</a>
+								}
+							}
+						</li>
+						<li class="text-center">
+							@RenderPage("~/Views/Partials/uWebshopMiniBasket.cshtml")
+						</li>
+					</ul>
+			</div>
+			<!--/.nav-collapse -->     
+		</div>
+	</div>
+	<!--/.navbar -->
+
+	
+}
+
+
+
+@helper RenderContentNav()
+{
+	var rootnode = uQuery.GetRootNode();
+	
+	var currentPageId = CurrentPage.Id;
+	var items = rootnode.ChildrenAsList.Where(x => x.Level != 1);
+
+	if (items.Any())
+	{
+		foreach (var item in items)
+		{
+			var cssClass = string.Empty;
+			
+			if (currentPageId == item.Id)
+			{
+				cssClass = "class=\"active\"";
+			}
+
+			<li @Html.Raw(cssClass)>
+				<a href="@item.Url">@item.Name</a>
+			</li>
+		}
+	}
+}

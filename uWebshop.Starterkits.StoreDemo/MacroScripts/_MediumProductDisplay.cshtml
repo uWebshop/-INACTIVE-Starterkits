@@ -1,0 +1,55 @@
+﻿@using uWebshop.API
+
+	@{
+		
+		var products = PageData[0];
+		
+		if(products != null) {
+			
+			<div class="row">
+			
+				@foreach (IProduct product in products)
+				{
+					<div class="col-sm-6 col-md-3 col-xs-12">
+						<div class="thumbnail"><a href="@product.NiceUrl()" title="@product.Title">
+							 @if (!product.Images.Any())
+							 {
+								 <img height="200" data-src="holder.js/100%x200/text:Image/" alt="..."/>
+							 }
+							 else
+							 {
+								 <img src="@product.Images.First().RelativePathToFile" height="200" alt="..."/>
+							 }
+							</a>
+							<div class="caption">								
+								@if (product.CreateDate >= DateTime.Now.AddDays(-7))
+									{
+										<span class="label label-success">New</span>
+									}
+									<span class="label label-default">
+										@{
+											if (product.Categories.Any())
+											{
+												@product.Categories.First().Title
+											}
+										}</span>
+								<h3>@product.Title</h3>
+								<hr/>
+								<div class="row">
+									<div class="col-sm-7 col-xs-7">
+										@RenderPage("~/macroScripts/_SimpleAddToBasket.cshtml", product)
+									</div><!-- /col-md-7 -->									
+									<div class="col-sm-5 col-xs-5 text-right">
+										<p><a href="@product.NiceUrl()" title="@product.Title" class="btn btn-info">Details</a></p>
+									</div><!-- /col-md-3 -->
+								</div><!-- /row -->
+							</div><!-- /caption -->
+						</div> <!-- /thumbnail -->
+					</div>
+					<!-- /col-sm-6 col-md-3 -->
+
+				}
+			
+			</div>
+		}
+	}
