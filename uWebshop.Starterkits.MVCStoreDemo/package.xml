@@ -268,12 +268,11 @@
 			<uwbsHomepage id="1153" parentID="-1" level="1" creatorID="0" sortOrder="1" createDate="2013-10-16T20:41:30" updateDate="2013-11-03T21:11:10" nodeName="uWebshop DemoStore" urlName="uwebshop-demostore" path="-1,1153" isDoc="" nodeType="1151" creatorName="admin" writerName="admin" writerID="0" template="1144" nodeTypeAlias="uwbsHomepage">
 				<uwbsStorePicker>1158</uwbsStorePicker>
 				<siteName>uWebshop 2.0 Sandbox</siteName>
-				<siteDescription><![CDATA[An HTML only uWebshop 2.0 blank starter kit!]]></siteDescription>
+				<siteDescription><![CDATA[uWebshop Demo Starterstore]]></siteDescription>
 				<bodyText>
-					<![CDATA[<p>The uWebshop 2.0 Sandbox gives you a bare-bones website that introduces you to a set of well-defined conventions for building an uWebshop based webshop!</p>
-<p>This Sandbox is very basic in form and provided without any design or javascript, an easy way to get you started with a nice collection of HTML/Razor and XSLT! Of course all the uWebshop functionality is also available to use with Javascript/jQuery/JSON.</p>
-<p>uWebshop 2.0 can be easily integrated with any existing website or starterkit already available for Umbraco. In a few easy steps explained during installation you will have a fully working webshop without having to learn anything new or make big changes to your current site!</p>
-<p>If you see some errors try to publish the uWebshop Node + all children, to update the Examine cache.</p>]]>
+					<![CDATA[<p>The uWebshop 2.0 Starterstore gives you ready-to-start uWebshop store that introduces you to a set of well-defined conventions for building an uWebshop based webshop!</p>
+<p>uWebshop can be easily integrated with any existing website or starterkit already available for Umbraco. In a few easy steps explained during installation you will have a fully working webshop without having to learn anything new or make big changes to your current site!</p>
+<p>If you see some errors try to publish the uWebshop Node + all childrene.</p>]]>
 				</bodyText>
 				<uwbsBasket id="1154" parentID="1153" level="2" creatorID="0" sortOrder="0" createDate="2013-10-16T20:41:30" updateDate="2013-10-20T17:32:13" nodeName="Basket" urlName="basket" path="-1,1153,1154" isDoc="" nodeType="1149" creatorName="admin" writerName="admin" writerID="0" template="1141" nodeTypeAlias="uwbsBasket">
 					<umbracoNaviHide>0</umbracoNaviHide>
@@ -411,7 +410,7 @@
 	<div class="col-md-9">       
       <div class="jumbotron">
         <h1>uWebshop StarterStore</h1>
-        <p>Get started with uWebshop quickly and beautifully with this starterkit!</p>
+        <p>Get started with uWebshop quickly and beautifully with this demostore!</p>
                 
       </div>
     </div> <!-- /col-md-9--> 
