@@ -25,7 +25,7 @@ uWebshop uses a default html <form> to update the basket. Keep in mind that if y
 								var fulfillmentproviders = Basket.GetFulfillmentProviders();
 								   foreach (var shippingProvider in fulfillmentproviders)
 									{
-										foreach (var shippingProviderMethod in shippingProvider.Methods)
+                                       foreach (var shippingProviderMethod in shippingProvider.Methods)
 										{
 											var itemChecked = "";
 											if (basket.Fulfillment.Providers.Any())
@@ -103,7 +103,7 @@ uWebshop uses a default html <form> to update the basket. Keep in mind that if y
 													else
 													{
 														<strong>@paymentProvider.Title</strong>
-														@paymentProvider.Title
+														@paymentProviderMethod.Title
 													}			
 												</label>
 											</div>

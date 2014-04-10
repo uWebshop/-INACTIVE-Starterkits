@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<umbPackage>
+	<info>
+		<package>
+			<name>uWebshop MVC Demoshop</name>
+			<version>2.4.1.0</version>
+			<license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+			<url>http://www.uWebshop.com</url>
+			<requirements>
+				<major>6</major>
+				<minor>0</minor>
+				<patch>0</patch>
+			</requirements>
+		</package>
+		<author>
+			<name>uWebshop</name>
+			<website>http://www.uWebshop.com</website>
+		</author>
+		<readme>
+			<![CDATA[uWebshop 2.5 MVC Demoshop
+	  
+	  This package installs the MVC demoshop for your uWebshop Foundation Installation.
+	  
+	  Notice: This demoshop requires the uWebshop 2.4+ Foundation to be already installed & Umbraco set to MVC mode!
+	]]>
+		</readme>
+	</info>
+	<files>
+		<!-- Usercontrol -->
+		<file>
+			<guid>uWebshopDemoStarterkitInstaller.ascx</guid>
+			<orgPath>/App_Plugins/uWebshop/installers/</orgPath>
+			<orgName>uWebshopDemoStarterkitInstaller.ascx</orgName>
+		</file>
+		<!-- Css -->
+		<file>
+			<guid>bootstrap.css</guid>
+			<orgPath>/Css</orgPath>
+			<orgName>bootstrap.css</orgName>
+		</file>
+		<file>
+			<guid>uWebshopStarterkit.css</guid>
+			<orgPath>/Css</orgPath>
+			<orgName>uWebshopStarterkit.css</orgName>
+		</file>
+		<!-- JS -->
+		<file>
+			<guid>uWebshopStarterkit.js</guid>
+			<orgPath>/Scripts</orgPath>
+			<orgName>uWebshopStarterkit.js</orgName>
+		</file>
+		<file>
+			<guid>bootstrap.min.js</guid>
+			<orgPath>/Scripts/Assets</orgPath>
+			<orgName>bootstrap.min.js</orgName>
+		</file>
+		<file>
+			<guid>holder.js</guid>
+			<orgPath>/Scripts/Assets</orgPath>
+			<orgName>holder.js</orgName>
+		</file>
+		<file>
+			<guid>html5shiv.js</guid>
+			<orgPath>/Scripts/Assets</orgPath>
+			<orgName>html5shiv.js</orgName>
+		</file>
+		<file>
+			<guid>jquery.min.js</guid>
+			<orgPath>/Scripts/Assets</orgPath>
+			<orgName>jquery.min.js</orgName>
+		</file>
+		<file>
+			<guid>respond.min.js</guid>
+			<orgPath>/Scripts/Assets</orgPath>
+			<orgName>respond.min.js</orgName>
+		</file>
+		<!-- Fonts -->
+		<file>
+			<guid>glyphicons-halflings-regular.eot</guid>
+			<orgPath>/fonts</orgPath>
+			<orgName>glyphicons-halflings-regular.eot</orgName>
+		</file>
+		<file>
+			<guid>glyphicons-halflings-regular.svg</guid>
+			<orgPath>/fonts</orgPath>
+			<orgName>glyphicons-halflings-regular.svg</orgName>
+		</file>
+		<file>
+			<guid>glyphicons-halflings-regular.ttf</guid>
+			<orgPath>/fonts</orgPath>
+			<orgName>glyphicons-halflings-regular.ttf</orgName>
+		</file>
+		<file>
+			<guid>glyphicons-halflings-regular.woff</guid>
+			<orgPath>/fonts</orgPath>
+			<orgName>glyphicons-halflings-regular.woff</orgName>
+		</file>
+		<!-- Razor -->
+		<file>
+			<guid>_AddToWishlist.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>_AddToWishlist.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_BasketOrderLines.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>_BasketOrderLines.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_ChangeCurrency.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>_ChangeCurrency.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_CustomerChangePassword.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>_CustomerChangePassword.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_CustomerCreate.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>_CustomerCreate.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_CustomerLogin.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>_CustomerLogin.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_CustomerOrderDetails.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>_CustomerOrderDetails.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_CustomerProfile.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>_CustomerProfile.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_MediumProductDisplay.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>_MediumProductDisplay.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_OrderOrderLines.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>_OrderOrderLines.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_ProductAddToBasket.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>_ProductAddToBasket.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_SimpleAddToBasket.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>_SimpleAddToBasket.cshtml</orgName>
+		</file>
+		<file>
+			<guid>_SmallProductDisplay.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>_SmallProductDisplay.cshtml</orgName>
+		</file>
+		<file>
+			<guid>CrumblePath.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>CrumblePath.cshtml</orgName>
+		</file>
+		<file>
+			<guid>CustomerForgotPassword.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>CustomerForgotPassword.cshtml</orgName>
+		</file>
+		<file>
+			<guid>CustomerOrderHistory.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>CustomerOrderHistory.cshtml</orgName>
+		</file>
+		<file>
+			<guid>CustomerProfile.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>CustomerProfile.cshtml</orgName>
+		</file>
+		<file>
+			<guid>CustomerWishlist.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>CustomerWishlist.cshtml</orgName>
+		</file>
+		<file>
+			<guid>NewestProducts.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>NewestProducts.cshtml</orgName>
+		</file>
+		<file>
+			<guid>RandomCategories.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>RandomCategories.cshtml</orgName>
+		</file>
+		<file>
+			<guid>TopSellingProductsList.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>TopSellingProductsList.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopActionResult.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>uWebshopActionResult.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopBasket.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>uWebshopBasket.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopCategory.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>uWebshopCategory.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopCheckout.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>uWebshopCheckout.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopCheckoutCustomer.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>uWebshopCheckoutCustomer.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopLatestProducts.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>uWebshopLatestProducts.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopMetaDescription.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>uWebshopMetaDescription.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopMiniBasket.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>uWebshopMiniBasket.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopNavigation.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>uWebshopNavigation.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopPaging.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>uWebshopPaging.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopProduct.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>uWebshopProduct.cshtml</orgName>
+		</file>
+		<file>
+			<guid>uWebshopTopSellingProducts.cshtml</guid>
+			<orgPath>/Views/Partials</orgPath>
+			<orgName>uWebshopTopSellingProducts.cshtml</orgName>
+		</file>
+	</files>
+	<Documents/>
+	<Templates>
+    <Template>
+      <Name>Basket</Name>
+      <Alias>uwbsBasket</Alias>
+      <Master>uWebshopMaster</Master>
+      <Design>
+		  <![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "uWebshopMaster.cshtml";
+}
+
+	@RenderPage("~/Views/Partials/CrumblePath.cshtml")
+	
+	<h2>@CurrentPage.Name</h2>
+			
+	@CurrentPage.bodyText
+
+	@RenderPage("~/Views/Partials/uWebshopBasket.cshtml")
+	]]></Design>
+    </Template>
+    <Template>
+      <Name>Category</Name>
+      <Alias>uwbsCategory</Alias>
+      <Master>uWebshopMaster</Master>
+      <Design>
+		  <![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "uWebshopMaster.cshtml";
+}
+
+
+@RenderPage("~/Views/Partials/CrumblePath.cshtml")
+@RenderPage("~/Views/Partials/uWebshopCategory.cshtml")]]></Design>
+    </Template>
+    <Template>
+      <Name>Checkout</Name>
+      <Alias>uwbsCheckoutMaster</Alias>
+      <Master>uWebshopMaster</Master>
+      <Design>
+		  <![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "uWebshopMaster.cshtml";
+}
+
+@RenderPage("~/Views/Partials/CrumblePath.cshtml")
+
+	<h2>@CurrentPage.Name</h2>
+			
+	@CurrentPage.bodyText		
+   	
+	@RenderBody()
+	]]></Design>
+    </Template>
+    <Template>
+      <Name>CheckoutCustomer</Name>
+      <Alias>uwbsCheckoutCustomer</Alias>
+      <Master>uwbsCheckoutMaster</Master>
+      <Design>
+		  <![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "uwbsCheckoutMaster.cshtml";
+}
+
+@RenderPage("~/Views/Partials/uWebshopCheckoutCustomer.cshtml")
+	]]></Design>
+    </Template>
+    <Template>
+      <Name>CheckoutOverview</Name>
+      <Alias>uwbsCheckoutOverview</Alias>
+      <Master>uwbsCheckoutMaster</Master>
+      <Design>
+		  <![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "uwbsCheckoutMaster.cshtml";
+}
+
+@RenderPage("~/Views/Partials/uWebshopCheckout.cshtml")
+	]]></Design>
+    </Template>
+    <Template>
+      <Name>Homepage</Name>
+      <Alias>uwbsHomepage</Alias>
+      <Master>uWebshopMaster</Master>
+      <Design>
+		  <![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "uWebshopMaster.cshtml";
+}
+
+<div class="row">
+	<div class="col-md-9">       
+      <div class="jumbotron">
+        <h1>uWebshop StarterStore</h1>
+        <p>Get started with uWebshop quickly and beautifully with this demostore!</p>
+                
+      </div>
+    </div> <!-- /col-md-9--> 
+	<div class="col-md-3">
+      <div class="well sidebar-nav">		 
+			@RenderPage("~/Views/Partials/TopSellingProductsList.cshtml")
+			  @RenderPage("~/Views/Partials/RandomCategories.cshtml")
+		</div>
+    </div><!-- /col-md-3 -->
+</div><!-- /row -->
+
+	
+			@RenderPage("~/Views/Partials/NewestProducts.cshtml")	
+	]]></Design>
+    </Template>
+    <Template>
+      <Name>Product</Name>
+      <Alias>uwbsProduct</Alias>
+      <Master>uWebshopMaster</Master>
+      <Design>
+		  <![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "uWebshopMaster.cshtml";
+}
+
+@RenderPage("~/Views/Partials/CrumblePath.cshtml")
+@RenderPage("~/Views/Partials/uWebshopProduct.cshtml")]]></Design>
+    </Template>
+    <Template>
+      <Name>Profile</Name>
+      <Alias>uwbsProfileMaster</Alias>
+      <Master>uWebshopMaster</Master>
+      <Design>
+		  <![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "uWebshopMaster.cshtml";
+}
+
+@RenderPage("~/Views/Partials/CrumblePath.cshtml")
+
+	<h2>@CurrentPage.Name</h2>
+			
+	@CurrentPage.bodyText		
+   	
+	@RenderBody()
+	]]></Design>
+    </Template>
+    <Template>
+      <Name>ProfileLoginCreate</Name>
+      <Alias>uwbsProfileLoginCreate</Alias>
+      <Master>uwbsProfileMaster</Master>
+      <Design>
+		  <![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "uwbsProfileMaster.cshtml";
+}
+
+@RenderPage("~/Views/Partials/CustomerProfile.cshtml")]]></Design>
+    </Template>
+    <Template>
+      <Name>ProfileOrders</Name>
+      <Alias>uwbsProfileOrders</Alias>
+      <Master>uwbsProfileMaster</Master>
+      <Design>
+		  <![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "uwbsProfileMaster.cshtml";
+}
+
+@RenderPage("~/Views/Partials/CustomerOrderHistory.cshtml")]]></Design>
+    </Template>
+    <Template>
+      <Name>ProfilePasswordForgotten</Name>
+      <Alias>uwbsProfilePasswordForgotten</Alias>
+      <Master>uwbsProfileMaster</Master>
+      <Design>
+		  <![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "uwbsProfileMaster.cshtml";
+}
+
+@RenderPage("~/Views/Partials/CustomerForgotPassword.cshtml")]]></Design>
+    </Template>
+    <Template>
+      <Name>ProfileWishlist</Name>
+      <Alias>uwbsProfileWishlist</Alias>
+      <Master>uwbsProfileMaster</Master>
+      <Design>
+		  <![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "uwbsProfileMaster.cshtml";
+}
+
+@RenderPage("~/Views/Partials/CustomerWishlist.cshtml")]]></Design>
+    </Template>
+    <Template>
+      <Name>Textpage</Name>
+      <Alias>uwbsTextpage</Alias>
+      <Master>uWebshopMaster</Master>
+      <Design>
+		  <![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "uWebshopMaster.cshtml";
+}
+
+<h2>@CurrentPage.Name</h2>
+			
+	@CurrentPage.bodyText		
+   	
+
+	]]></Design>
+    </Template>
+    <Template>
+      <Name>uWebshop Master</Name>
+      <Alias>uWebshopMaster</Alias>
+      <Design>
+			<![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+
+	Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="shortcut icon" href="assets/ico/favicon.png">
+
+		@RenderPage("~/Views/Partials/uWebshopMetaDescription.cshtml")
+	
+		<!-- Bootstrap core CSS -->
+		<link href="/css/bootstrap.css" rel="stylesheet">
+		<!-- <link href="/css/bootstrap-theme.css" rel="stylesheet"> -->
+		<!-- Custom styles for this template -->
+		<link href="/css/uWebshopStarterkit.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="/scripts/assets/html5shiv.js"></script>
+			<script src="/scripts/assets/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+			
+		@RenderPage("~/Views/Partials/uWebshopNavigation.cshtml")
+		
+		<div class="container">
+		
+			@RenderPage("~/Views/Partials/uWebshopActionResult.cshtml")
+			
+			@RenderBody()
+
+			<hr />
+			<div class="row">
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Change currency</h3>
+						</div>
+						<div class="panel-body">
+							@RenderPage("~/Views/Partials/_ChangeCurrency.cshtml")
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Service</h3>
+						</div>
+						<div class="panel-body">
+							<ul>
+								<li><a href="#">link</a></li>
+								<li><a href="#">link</a></li>
+								<li><a href="#">link</a></li>
+								<li><a href="#">link</a></li>
+								<li><a href="#">link</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Contact</h3>
+						</div>
+						<div class="panel-body">
+							<address>
+								<strong>uWebshop</strong><br>
+								3e Binnenvestgracht 24<br>
+								Leiden, The Netherlands<br>
+								<a href="/contact" title="Contact">contact</a>
+							</address>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<hr />
+		</div>
+		<!-- /container -->
+
+		<div id="footer">
+			<div class="container">
+				<p class="text-muted credit">&copy; uWebshop BV 2013<span class="pull-right">Powered by <a href="http://umbraco.com" title="Umbraco Content Management System">Umbraco</a> &amp; <a href="http://uWebshop.com" title="uWebshop E-commerece">uWebshop</a></span></p>
+			</div>
+		</div>
+	
+		<!-- Bootstrap core JavaScript -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="/scripts/assets/jquery.min.js"></script>
+		<script src="/scripts/assets/bootstrap.min.js"></script>
+		<script src="/scripts/assets/holder.js"></script>
+		<script src="/scripts/uWebshopStarterkit.js"></script>
+		<script src="/scripts/uWebshop/uWebshop.js"></script>
+	</body>
+</html>
+}]]></Design>
+    </Template>
+  </Templates>
+	<DocumentTypes/>
+	<Macros/>
+	<DictionaryItems />
+	<Languages />
+	<DataTypes />
+	<control>/App_Plugins/uWebshop/installers/uWebshopDemoStarterkitInstaller.ascx</control>
+</umbPackage>
