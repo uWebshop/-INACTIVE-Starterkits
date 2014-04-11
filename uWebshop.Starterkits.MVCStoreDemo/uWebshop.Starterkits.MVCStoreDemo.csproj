@@ -165,10 +165,22 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>SET UWBSVER=2.5.0.0
+echo Rendering packages as version %25UWBSVER%25
+
+IF EXIST "$(ProjectDir)package\" DEL /s /f /q "$(ProjectDir)package\*.*"
+
+for /R "$(ProjectDir)Css\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\"
+for /R "$(ProjectDir)fonts\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\"
+for /R "$(ProjectDir)Scripts\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\"
+for /R "$(ProjectDir)Views\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\"
+
+XCOPY "$(ProjectDir)package.xml" "$(ProjectDir)\package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\" /Y /R</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>IF EXIST "$(ProjectDir)package\" DEL /s /f /q "$(ProjectDir)package\*.*"</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
