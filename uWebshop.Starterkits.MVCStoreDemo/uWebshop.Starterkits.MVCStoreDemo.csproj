@@ -175,6 +175,9 @@ for /R "$(ProjectDir)fonts\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)pac
 for /R "$(ProjectDir)Scripts\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\"
 for /R "$(ProjectDir)Views\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\"
 
+
+XCOPY "$(ProjectDir)uWebshopDemoStarterkitInstaller.ascx" "$(ProjectDir)\package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\" /Y /R
+
 XCOPY "$(ProjectDir)package.xml" "$(ProjectDir)\package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\" /Y /R</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
