@@ -6,7 +6,7 @@ This snippet gives you a mini basket example to show the items in the basket and
 @using uWebshop.API
 
 @{
-
+     
 	var basket = Basket.GetBasket();
 
 	if (basket != null && basket.GrandTotal.Value > 0)

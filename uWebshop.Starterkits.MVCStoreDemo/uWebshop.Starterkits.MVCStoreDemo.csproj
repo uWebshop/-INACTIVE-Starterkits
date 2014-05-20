@@ -36,11 +36,23 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="umbraco">
+      <HintPath>..\..\Binary Dependencies umbraco7\umbraco.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Core, Version=1.0.4701.29087, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Binary Dependencies umbraco7\Umbraco.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Web.UI">
+      <HintPath>..\..\Binary Dependencies umbraco7\Umbraco.Web.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -170,15 +182,16 @@ echo Rendering packages as version %25UWBSVER%25
 
 IF EXIST "$(ProjectDir)package\" DEL /s /f /q "$(ProjectDir)package\*.*"
 
-for /R "$(ProjectDir)Css\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\"
+XCOPY "$(ProjectDir)uWebshopDemoStarterkitInstaller.ascx" "$(ProjectDir)\package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\" /Y /R
+
+XCOPY "$(ProjectDir)package.xml" "$(ProjectDir)\package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\" /Y /R
+
+echo | for /R "$(ProjectDir)Css\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\"
 for /R "$(ProjectDir)fonts\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\"
 for /R "$(ProjectDir)Scripts\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\"
 for /R "$(ProjectDir)Views\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\"
 
-
-XCOPY "$(ProjectDir)uWebshopDemoStarterkitInstaller.ascx" "$(ProjectDir)\package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\" /Y /R
-
-XCOPY "$(ProjectDir)package.xml" "$(ProjectDir)\package\uWebshop%25UWBSVER%25.DemoStore.MVC.Package.Installer\" /Y /R</PostBuildEvent>
+</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <PropertyGroup>

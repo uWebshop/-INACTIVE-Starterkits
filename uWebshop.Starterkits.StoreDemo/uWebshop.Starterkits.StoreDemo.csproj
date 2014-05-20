@@ -145,6 +145,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\uWebshop.Common\uWebshop.Common.csproj">
+      <Project>{61EEF91B-22ED-48F0-83EB-CDC7431C5BDE}</Project>
+      <Name>uWebshop.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\uWebshop.Domain\uWebshop.Domain.csproj">
       <Project>{30AC1FB6-EB29-4E4E-92C4-0481C503215C}</Project>
       <Name>uWebshop.Domain</Name>
@@ -152,10 +156,25 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>SET UWBSVER=2.5.0.0
+echo Rendering packages as version %25UWBSVER%25
+
+IF EXIST "$(ProjectDir)package\" DEL /s /f /q "$(ProjectDir)package\*.*"
+
+XCOPY "$(ProjectDir)uWebshopDemoStarterkitInstaller.ascx" "$(ProjectDir)\package\uWebshop%25UWBSVER%25.DemoStore.Webforms.Package.Installer\" /Y /R
+
+XCOPY "$(ProjectDir)package.xml" "$(ProjectDir)\package\uWebshop%25UWBSVER%25.DemoStore.Webforms.Package.Installer\" /Y /R
+
+for /R "$(ProjectDir)Css\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.Webforms.Package.Installer\"
+for /R "$(ProjectDir)fonts\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.Webforms.Package.Installer\"
+for /R "$(ProjectDir)Scripts\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.Webforms.Package.Installer\"
+for /R "$(ProjectDir)MacroScripts\" %25%25f in (*.*) do copy %25%25f  "$(ProjectDir)package\uWebshop%25UWBSVER%25.DemoStore.Webforms.Package.Installer\"
+</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>IF EXIST "$(ProjectDir)package\" DEL /s /f /q "$(ProjectDir)package\*.*"</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

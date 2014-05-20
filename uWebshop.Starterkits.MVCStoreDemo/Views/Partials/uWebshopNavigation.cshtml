@@ -5,6 +5,9 @@ This snippet lists all the categories and products in the uWebshop Catalog
 *@
 
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Linq
+@using System.Web.Security
+@using Umbraco.Web
 @using uWebshop.API
 
 @{
@@ -105,10 +108,12 @@ This snippet lists all the categories and products in the uWebshop Catalog
 
 @helper RenderContentNav()
 {
-	var rootnode = uQuery.GetRootNode();
-	
-	var currentPageId = CurrentPage.Id;
-	var items = rootnode.ChildrenAsList.Where(x => x.Level != 1);
+    var contentWithStoreId = Store.GetStore().GetConnectedNodes.First();
+
+    var contentRootNode = Umbraco.TypedContent(contentWithStoreId);
+
+    var currentPageId = CurrentPage.Id;
+    var items = contentRootNode.Children;
 
 	if (items.Any())
 	{

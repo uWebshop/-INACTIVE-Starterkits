@@ -14,7 +14,7 @@ uWebshop uses a default html <form> to update the basket. Keep in mind that if y
 	{
 		using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "form-horizontal"}))
 		{
-
+            @basket.Customer.Shipping.CountryCode
 			<div class="row">
 				<div class="col-sm-6">
 					
