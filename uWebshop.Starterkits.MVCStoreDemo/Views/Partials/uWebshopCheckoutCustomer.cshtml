@@ -175,8 +175,10 @@
 									 <label  class="col-lg-4 control-label" for="extraMessage">Comments on your order?</label>
 									 <div class="col-lg-8">
 										 <textarea class="form-control" name="extraMessage" id="extraMessage" type="text" rows="5" cols="60">@{
-											                                                                                                     var value = basket.OrderFields.GetValue<string>("extraMessage");
-											                                                                                                     @value}</textarea>
+											                                                                                                     var valueExtra = basket.OrderFields.GetValue<string>("extraMessage");
+
+                                                                                                                                                                
+											                                                                                                     @valueExtra}</textarea>
 									 </div>
 								 </div>
 							 </div>

@@ -18,14 +18,15 @@ uWebshop uses a default html <form> to update the basket. Keep in mind that if y
 			<div class="panel-footer">
 				<div class="row orderline orderline-footer">
 					<div class="col-sm-4">
-						<form name="couponform" method="post" role="form">
-							<div class="form-group">
-								<label for="couponcode">Couponcode</label>
-								<input type="text" class="form-control" name="couponcode" id="couponCode" placeholder="Enter Couponcode"/>
-							</div>
-		
-							<input type="submit" class="btn btn-info" value="Add Coupon"/>
-						</form>
+						@using (Html.BeginUmbracoForm("Handle", "BasketHandler", null, new {@class = "handleform"}))
+						{
+						    <div class="form-group">
+						        <label for="couponcode">Couponcode</label>
+						        <input type="text" class="form-control" name="couponcode" id="couponCode" placeholder="Enter Couponcode"/>
+						    </div>
+
+						    <input type="submit" class="btn btn-info" value="Add Coupon"/>
+						}
 						<div class="visible-xs">
 							<hr/>
 						</div>
